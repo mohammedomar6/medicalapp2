@@ -1,0 +1,10 @@
+<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<line class="st0" x1="16" y1="17" x2="16" y2="21" id="id_111" style="stroke: rgb(40, 158, 122);"></line>
+<line class="st0" x1="14" y1="19" x2="18" y2="19" id="id_112" style="stroke: rgb(35, 158, 121);"></line>
+<path class="st0" d="M25,29H7c-2.2,0-4-1.8-4-4V13c0-2.2,1.8-4,4-4h18c2.2,0,4,1.8,4,4v12C29,27.2,27.2,29,25,29z" id="id_113" style="stroke: rgb(226, 248, 252);"></path>
+<circle class="st0" cx="16" cy="19" r="6" id="id_114" style="stroke: rgb(224, 247, 250);"></circle>
+<path class="st0" d="M21,9H11V7c0-2.2,1.8-4,4-4h2c2.2,0,4,1.8,4,4V9z" id="id_115" style="stroke: rgb(224, 247, 250);"></path>
+</svg>

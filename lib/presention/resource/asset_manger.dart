@@ -38,4 +38,13 @@ static const String  chill = "assets/images/itemcontentmedical/chill.png";
   static const String  drugalart = "assets/images/icon drug alaer/drugsalart.png";
   static const String  add = "assets/images/icon drug alaer/add.png";
   static const String  alartc = "assets/images/icon drug alaer/alartc.png";
+
+
+  static const String  Medical_examinations =  "assets/svg_image/Medical_examinations.svg";
+  static const String  My_personal_information = "assets/svg_image/My_personal_information.svg";
+  static const String  pharmaceutical =  "assets/svg_image/pharmaceutical.svg";
+  static const String  sensitiv =  "assets/svg_image/sensitiv.svg";
+  static const String  surgery = "assets/svg_image/surgery.svg";
+  static const String  date = "assets/svg_image/date.svg";
+  static const String  date1 = "assets/svg_image/free_icon_1.svg";
 }

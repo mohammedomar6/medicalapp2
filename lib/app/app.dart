@@ -21,13 +21,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
 
         textButtonTheme: TextButtonThemeData(
-
             style: ButtonStyle(
-
-                textStyle: MaterialStateProperty.all(
-                    TextStyle(color: ColorManger.textcolor,)))),
+                textStyle: MaterialStateProperty.all(TextStyle(
+          color: ColorManger.textcolor,
+        )))),
         timePickerTheme: TimePickerThemeData(
-          dayPeriodBorderSide: BorderSide(color: ColorManger.textcolor),
+            dayPeriodBorderSide: BorderSide(color: ColorManger.textcolor),
             backgroundColor: ColorManger.cyen50,
             hourMinuteColor: ColorManger.cyen50,
             hourMinuteTextColor: ColorManger.textcolor,

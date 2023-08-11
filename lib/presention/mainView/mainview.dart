@@ -6,7 +6,7 @@ import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
 
-import 'page/record.dart';
+import 'page/record/record.dart';
 import 'page/content medical/medicalconren.dart';
 import 'page/setting.dart';
 

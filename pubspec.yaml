@@ -97,6 +97,13 @@ flutter:
      - assets/images/icon drug alaer/drugsalart.png
      - assets/images/icon drug alaer/add.png
      - assets/images/icon drug alaer/alartc.png
+     - assets/svg_image/surgery.svg
+     - assets/svg_image/Medical_examinations.svg
+     - assets/svg_image/My_personal_information.svg
+     - assets/svg_image/pharmaceutical.svg
+     - assets/svg_image/date.svg
+     - assets/svg_image/sensitiv.svg
+     - assets/svg_image/free_icon_1.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
