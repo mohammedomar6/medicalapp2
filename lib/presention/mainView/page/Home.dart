@@ -1,12 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:medicalapp2/presention/login/login_view.dart';
-import 'package:medicalapp2/presention/mainView/mainview.dart';
 import 'package:medicalapp2/presention/mainView/new%20chat/newchat.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import '../../resource/heart_icons.dart';
-import '../../resource/routes_manger.dart';
+
 import '../oldchats/oldchat.dart';
 import 'alart/alartdrugs.dart';
 
@@ -27,10 +25,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(child: TextButton(child: Text("log out"),onPressed: ()
-      {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginView()));
-      },)),
+      drawer: Drawer(
+          child: TextButton(
+        child: const Text("log out"),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const LoginView()));
+        },
+      )),
       backgroundColor: ColorManger.background,
       appBar: AppBar(
         elevation: 0.2,
@@ -64,7 +66,7 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => NewChat()),
+                                    builder: (context) => const NewChat()),
                               );
                             },
                             child: Text(
@@ -85,13 +87,13 @@ class _HomeState extends State<Home> {
                 "My previous medical consultations ",
                 "View doctors' recommendations for your previous consultations",
                 ImageManger.health,
-                OldChat()),
+                const OldChat()),
             buildhomecard(
               context,
               "New medical advice ",
               "Get a reliable medical reference within one minute",
               ImageManger.healthcare,
-              NewChat(),
+              const NewChat(),
             ),
             buildhomecard(
                 context,
@@ -110,14 +112,14 @@ class _HomeState extends State<Home> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             gradient: ColorManger.y, borderRadius: BorderRadius.circular(40)),
         width: 400,
         height: 100,
         child: ListTile(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(40))),
           textColor: ColorManger.white,
           subtitle: Text(
@@ -140,7 +142,7 @@ class _HomeState extends State<Home> {
           ),
           title: Text(
             text,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           leading: Image.asset(
             imagepath,

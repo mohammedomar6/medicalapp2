@@ -28,38 +28,34 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.2.1
+  cupertino_icons: ^1.0.2
+  curved_navigation_bar: ^1.0.3
+  dart_openai: 
+  dropdown_button2: null
+  email_validator: ^2.1.17
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  flutter_svg:
-  pin_input_text_field: ^4.5.0
-  flutter_animated_button:
-  curved_navigation_bar: ^1.0.3
-  carousel_slider: ^4.2.1
+  flutter_animated_button: null
+  flutter_svg: null
+  http: 
+  bloc: 
+  flutter_bloc:
+  dartz:
+  equatable:
+  shared_preferences:
   fluttericon: ^2.0.0
   grouped_list: ^5.1.2
-  intl: ^0.18.1
   iconsax: ^0.0.8
-  email_validator: ^2.1.17
-  dropdown_button2:
+  intl: ^0.18.1
+  pin_input_text_field: ^4.5.0
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^2.0.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -70,47 +66,45 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/check.svg
-     - assets/images/Forgotpassword.svg
-     - assets/images/Group.svg
-     - assets/images/newpasswoed.svg
-     - assets/images/Group 1.png
-     - assets/images/medical-low-resolution-color-logo.png
-     - assets/images/logo.svg
-     - assets/images/login22.png
-     - assets/images/home3.jpg
-     - assets/images/home1.png
-     - assets/images/home2.png
-     - assets/images/itemcontentmedical/diet.png
-     - assets/images/itemcontentmedical/drug.png
-     - assets/images/itemcontentmedical/heart.png
-     - assets/images/itemcontentmedical/hospital.png
-     - assets/images/itemcontentmedical/laboratory.png
-     - assets/images/itemcontentmedical/news.png
-     - assets/images/itemcontentmedical/sensitivity.png
-     - assets/images/itemcontentmedical/diet.png
-     - assets/images/itemcontentmedical/chill.png
-     - assets/images/iconhomepage/health.png
-     - assets/images/iconhomepage/healthcare.png
-     - assets/images/iconhomepage/right-arrow.png
-     - assets/images/iconhomepage/bell.png
-     - assets/images/icon drug alaer/drugsalart.png
-     - assets/images/icon drug alaer/add.png
-     - assets/images/icon drug alaer/alartc.png
-     - assets/svg_image/surgery.svg
-     - assets/svg_image/Medical_examinations.svg
-     - assets/svg_image/My_personal_information.svg
-     - assets/svg_image/pharmaceutical.svg
-     - assets/svg_image/date.svg
-     - assets/svg_image/sensitiv.svg
-     - assets/svg_image/free_icon_1.svg
+    - assets/images/check.svg
+    - assets/images/Forgotpassword.svg
+    - assets/images/Group.svg
+    - assets/images/newpasswoed.svg
+    - assets/images/Group 1.png
+    - assets/images/medical-low-resolution-color-logo.png
+    - assets/images/logo.svg
+    - assets/images/login22.png
+    - assets/images/home3.jpg
+    - assets/images/home1.png
+    - assets/images/home2.png
+    - assets/images/itemcontentmedical/diet.png
+    - assets/images/itemcontentmedical/drug.png
+    - assets/images/itemcontentmedical/heart.png
+    - assets/images/itemcontentmedical/hospital.png
+    - assets/images/itemcontentmedical/laboratory.png
+    - assets/images/itemcontentmedical/news.png
+    - assets/images/itemcontentmedical/sensitivity.png
+    - assets/images/itemcontentmedical/diet.png
+    - assets/images/itemcontentmedical/chill.png
+    - assets/images/iconhomepage/health.png
+    - assets/images/iconhomepage/healthcare.png
+    - assets/images/iconhomepage/right-arrow.png
+    - assets/images/iconhomepage/bell.png
+    - assets/images/icon drug alaer/drugsalart.png
+    - assets/images/icon drug alaer/add.png
+    - assets/images/icon drug alaer/alartc.png
+    - assets/svg_image/surgery.svg
+    - assets/svg_image/Medical_examinations.svg
+    - assets/svg_image/My_personal_information.svg
+    - assets/svg_image/pharmaceutical.svg
+    - assets/svg_image/date.svg
+    - assets/svg_image/sensitiv.svg
+    - assets/svg_image/free_icon_1.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -131,7 +125,6 @@ flutter:
         - weight: 300
     - family: _kFontFam
       fonts:
-         - asset: assets/fonts/Heart.ttf
-  #
+        - asset: assets/fonts/Heart.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
