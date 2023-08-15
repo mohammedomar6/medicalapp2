@@ -1,8 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:medicalapp2/methodes.dart';
-import 'package:medicalapp2/presention/login/login_view.dart';
+import 'package:medicalapp2/presention/login_pages/login/login_view.dart';
 import 'package:medicalapp2/presention/mainView/page/Home.dart';
+import 'package:medicalapp2/presention/mainView/page/medical_visits/setting.dart';
 import 'package:medicalapp2/presention/mainView/page/thememode.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
@@ -12,7 +13,7 @@ import 'page/Acount.dart';
 import 'page/ReatsApp.dart';
 import 'page/record/record.dart';
 import 'page/content medical/medicalconren.dart';
-import 'page/medical_visits/setting.dart';
+import 'page/seetting.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -157,7 +158,7 @@ mainAxisAlignment: MainAxisAlignment.start,
 title: Text("Setting",style: TextStyle(color: ColorManger.textcolor),),
             leading: Icon(Icons.settings,color: ColorManger.textcolor,),
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Setting()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Seetting()));
             },
           ),
           ListTile(

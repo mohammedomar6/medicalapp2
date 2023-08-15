@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:medicalapp2/presention/login/login_view.dart';
+import 'package:medicalapp2/presention/login_pages/login/login_view.dart';
 import 'package:medicalapp2/presention/mainView/new%20chat/newchat.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';

@@ -3,12 +3,12 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalapp2/methodes.dart';
-import 'package:medicalapp2/presention/login/login_view.dart';
+import 'package:medicalapp2/presention/login_pages/login/login_view.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
-import 'package:medicalapp2/presention/verifaction/VarifictionView.dart';
+import 'package:medicalapp2/presention/login_pages/verifaction/VarifictionView.dart';
 class NewPasswordView extends StatefulWidget {
   const NewPasswordView({Key? key}) : super(key: key);
 

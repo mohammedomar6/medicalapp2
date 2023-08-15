@@ -496,35 +496,35 @@
     "Yellow eyes",
     "Yellow skin"
   ],
-  "specialties": {
-    "Allergy and Immunology": "الحساسية والمناعة",
-    "Anesthesiology": "تخدير",
-    "Cardiology": "طب القلب",
-    "Dermatology": "الأمراض الجلدية",
-    "Emergency Medicine": "طب الطوارئ",
-    "Endocrinology": "طب الغدد الصماء",
-    "Family Medicine": "الطب العائلي",
-    "Gastroenterology": "الجهاز الهضمي",
-    "Geriatrics": "علم كبار السن",
-    "Hematology": "طب الدم",
-    "Infectious Disease": "الأمراض المعدية",
-    "Internal Medicine": "طب الباطنة",
-    "Neurology": "طب الأعصاب",
-    "Neurosurgery": "جراحة الأعصاب",
-    "Obstetrics and Gynecology": "طب النساء والتوليد",
-    "Ophthalmology": "طب العيون",
-    "Orthopedic Surgery": "جراحة العظام",
-    "Otolaryngology (ENT)": "أمراض وجراحة الأنف والأذن والحنجرة",
-    "Pathology": "علم الأمراض",
-    "Pediatrics": "طب الأطفال",
-    "Physical Medicine and Rehabilitation": "الطب الطبيعي وإعادة التأهيل",
-    "Psychiatry": "الطب النفسي",
-    "Pulmonology": "أمراض الرئة",
-    "Radiology": "التصوير الطبي",
-    "Rheumatology": "طب الروماتيزم",
-    "Surgery": "الجراحة",
-    "Urology": "جراحة المسالك البولية"
-  },
+  "specialties": [
+    "Allergy and Immunology",
+    "Anesthesiology",
+    "Cardiology",
+    "Dermatology",
+    "Emergency Medicine",
+    "Endocrinology",
+    "Family Medicine ",
+    "Gastroenterology",
+    "Geriatrics",
+    "Hematology",
+    "Infectious Disease",
+    "Internal Medicine",
+    "Neurology",
+    "Neurosurgery",
+    "Obstetrics and Gynecology",
+    "Ophthalmology",
+    "Orthopedic Surgery",
+    "Otolaryngology (ENT)",
+    "Pathology",
+    "Pediatrics",
+    "Physical Medicine and Rehabilitation",
+    "Psychiatry",
+    "Pulmonology",
+    "Radiology",
+    "Rheumatology",
+    "Surgery",
+    "Urology"
+  ],
 
   "diets": [
     {
@@ -574,7 +574,8 @@
     },
     {
       "name": "DASH Diet",
-      "details": "The DASH (Dietary Approaches to Stop Hypertension) Diet aims to lower blood pressure. It emphasizes fruits, vegetables, whole grains, lean proteins, and low-fat dairy while reducing sodium intake."
+      "details": "The DASH (Dietary Approaches to Stop Hypertension) Diet aims to lower blood pressure. It emphasizes fruits, vegetables, whole grains, lean proteins, and low-fat dairy while reducing sodium intake.",
+      "image": "\"https://www.usatoday.com/gcdn/-mm-/615eb9b3dda3f2daf3ceb045278d833fb7918d51/c=0-286-5616-3459/local/-/media/2018/02/27/USATODAY/USATODAY/636553211596010748-GettyImages-903585546.jpg"
     }
   ]
 

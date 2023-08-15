@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medicalapp2/presention/newpassword/new_password.dart';
+import 'package:medicalapp2/presention/login_pages/newpassword/new_password.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
 import 'package:medicalapp2/presention/resource/values_manger.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
-import '../../methodes.dart';
-import '../resource/routes_manger.dart';
+
+import '../../../methodes.dart';
+
 
 class Verfiction extends StatefulWidget {
   Verfiction() {}

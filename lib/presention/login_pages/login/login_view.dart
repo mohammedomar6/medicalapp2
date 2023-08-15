@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:medicalapp2/presention/forgot_password/forget_password_view.dart';
+import 'package:medicalapp2/presention/login_pages/forgot_password/forget_password_view.dart';
 import 'package:medicalapp2/presention/mainView/mainview.dart';
-import 'package:medicalapp2/presention/register/register_view.dart';
+import 'package:medicalapp2/presention/login_pages/register/register_view.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
 import 'package:medicalapp2/presention/resource/values_manger.dart';
-import '../../methodes.dart';
+
+import '../../../methodes.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -86,6 +88,7 @@ class _LoginViewState extends State<LoginView> {
                         }),
                   ),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
                       if (value!.isEmpty && value.length < 8) {
                         return "enter your email";
@@ -111,6 +114,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 10,
                   ),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (val) {
                       if (val!.length < 8) {
                         return "enter password length big 8";

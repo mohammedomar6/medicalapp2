@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:medicalapp2/presention/mainView/mainview.dart';
-import 'package:medicalapp2/presention/newpassword/new_password.dart';
-import 'package:medicalapp2/presention/verifaction/VarifictionView.dart';
-import '../forgot_password/forget_password_view.dart';
-import '../login/login_view.dart';
+import 'package:medicalapp2/presention/login_pages/newpassword/new_password.dart';
+import 'package:medicalapp2/presention/login_pages/verifaction/VarifictionView.dart';
+import '../login_pages/forgot_password/forget_password_view.dart';
+import '../login_pages/login/login_view.dart';
 import '../mainView/new chat/newchat.dart';
-import '../register/register_view.dart';
+import '../login_pages/register/register_view.dart';
 import '../spalsh/splash_view.dart';
 import 'string_manger.dart';
 

@@ -55,9 +55,12 @@ class _DietsState extends State<Diets> {
             height:75,
             child: ListTile(
 
-              onTap: (){},
+              onTap: (){
+
+              },
               title: Text("${item[index]['name']}",style: TextStyle(color: ColorManger.textcolor)),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
+
             ),
           );
         }),

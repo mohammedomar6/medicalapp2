@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:medicalapp2/methodes.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
@@ -17,17 +18,20 @@ class _RegisterViewState extends State<RegisterView> {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   var c = TextEditingController();
   String? valdrop = "Doctor";
+  var value = "Anesthesiology";
+  var item = [];
+
   List<String> list = ["Doctor", "Public"];
   var valueGender = "Male";
   var controllerdatepicker = TextEditingController();
   int currentstep = 0;
- onsteptapped(int val) {
 
-   setState(() {
+  onsteptapped(int val) {
+    setState(() {
+      currentstep = val;
+    });
+  }
 
-     currentstep = val;
-   });
- }
   onStepCancel() {
     setState(() {
       if (currentstep > 0) currentstep = currentstep - 1;
@@ -35,22 +39,35 @@ class _RegisterViewState extends State<RegisterView> {
   }
 
   onStepContinue() {
-
-      setState(() {
-        if (currentstep <2) {
-          currentstep = currentstep+1;
-          isactivestep = true;
-        }
-      });
-
+    setState(() {
+      if (currentstep < 1) {
+        currentstep = currentstep + 1;
+        isactivestep = true;
+      }
+    });
   }
 
   bool isactivestep = false;
 
+  Future<void> readjson() async {
+    final String response = await rootBundle.loadString("assets/symptoms.json");
+    final dats = await json.decode(response);
+    setState(() {
+      item = dats["specialties"];
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      readjson();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: Methodes.buildAppBar(
           context: context, title: "Sign Up", routeleading: Routes.loginRoutes),
       body: Form(
@@ -59,26 +76,23 @@ class _RegisterViewState extends State<RegisterView> {
           color: ColorManger.background,
           child: Theme(
             data: ThemeData(
-
-                  canvasColor: ColorManger.textcolor,
-                  colorScheme: Theme.of(context).colorScheme.copyWith(
+              canvasColor: ColorManger.textcolor,
+              colorScheme: Theme.of(context).colorScheme.copyWith(
                     primary: ColorManger.cyen50,
                     background: ColorManger.textcolor,
                     secondary: ColorManger.textcolor,
-
                   ),
-                ),
+            ),
             child: Stepper(
               onStepCancel: onStepCancel,
               onStepContinue: onStepContinue,
               controlsBuilder: (context, v) {
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
-
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(12),
+                        margin: EdgeInsets.all(12),
                         color: ColorManger.textcolor,
                         child: TextButton(
                           onPressed: v.onStepContinue,
@@ -90,10 +104,12 @@ class _RegisterViewState extends State<RegisterView> {
                     Container(
                         color: ColorManger.textcolor,
                         margin: EdgeInsets.all(12),
-
                         child: TextButton(
-
-                            onPressed: v.onStepCancel, child: Text("Back", style: TextStyle(color: ColorManger.cyen50),))),
+                            onPressed: v.onStepCancel,
+                            child: Text(
+                              "Back",
+                              style: TextStyle(color: ColorManger.cyen50),
+                            ))),
                   ],
                 );
               },
@@ -101,17 +117,17 @@ class _RegisterViewState extends State<RegisterView> {
               type: StepperType.horizontal,
               steps: [
                 Step(
-
                     isActive: currentstep == 0,
                     state: currentstep == 0
                         ? StepState.complete
                         : StepState.disabled,
-
-                    title: Text("Step 1",style: TextStyle(color: ColorManger.cyen50),),
+                    title: Text(
+                      "Step 1",
+                      style: TextStyle(color: ColorManger.cyen50),
+                    ),
                     content: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-
                         Container(
                           padding: EdgeInsets.only(left: 15),
                           child: DropdownButtonFormField<String>(
@@ -125,9 +141,9 @@ class _RegisterViewState extends State<RegisterView> {
                               value: valdrop,
                               items: list
                                   .map((e) => DropdownMenuItem<String>(
-                                child: Text(e),
-                                value: e,
-                              ))
+                                        child: Text(e),
+                                        value: e,
+                                      ))
                                   .toList(),
                               onChanged: (String? val) {
                                 setState(() {
@@ -135,20 +151,46 @@ class _RegisterViewState extends State<RegisterView> {
                                 });
                               }),
                         ),
+                        if (valdrop == "Doctor")
+                          Container(
+                            //  height: 75,
+                            padding: EdgeInsets.only(left: 15),
 
+                            child: DropdownButtonFormField<String>(
+                                isExpanded: true,
+                                dropdownColor: ColorManger.cyen50,
+                                decoration: Methodes.buildInputDecoration(
+                                    "Medical specialty", "", null, null),
+                                style: TextStyle(
+                                  color: ColorManger.textcolor,
+                                  fontSize: 16,
+                                ),
+                                value: value,
+                                items: item
+                                    .map((e) => DropdownMenuItem<String>(
+                                          child: Text(e),
+                                          value: e,
+                                        ))
+                                    .toList(),
+                                onChanged: (String? val) {
+                                  setState(() {
+                                    value = val!;
+                                  });
+                                }),
+                          ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: TextFormField(
                             controller: c,
                             validator: (val) {
-                              if (c.text.isEmpty) return "please enter your name";
+                              if (c.text.isEmpty)
+                                return "please enter your name";
                             },
                             decoration: Methodes.buildInputDecoration(
                                 "First Name", "", Icon(Icons.person), null),
                           ),
                         ),
                         Padding(
-
                           padding: const EdgeInsets.only(top: 8),
                           child: TextFormField(
                             validator: (val) {
@@ -161,7 +203,7 @@ class _RegisterViewState extends State<RegisterView> {
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: DropdownButtonFormField(
-                            dropdownColor: ColorManger.background,
+                              dropdownColor: ColorManger.background,
                               decoration: Methodes.buildInputDecoration(
                                   "Gender",
                                   "",
@@ -229,9 +271,10 @@ class _RegisterViewState extends State<RegisterView> {
                                   lastDate: DateTime.utc(
                                     2003,
                                   )).then((value) => {
-                                    controllerdatepicker.text = DateFormat.yMMMd()
-                                        .format(value!)
-                                        .toString(),
+                                    controllerdatepicker.text =
+                                        DateFormat.yMMMd()
+                                            .format(value!)
+                                            .toString(),
                                   });
                             },
                           ),
@@ -240,22 +283,23 @@ class _RegisterViewState extends State<RegisterView> {
                     )),
                 Step(
                   isActive: currentstep == 1,
-                  state:
-                      currentstep == 1 ? StepState.complete : StepState.disabled,
+                  state: currentstep == 1
+                      ? StepState.complete
+                      : StepState.disabled,
                   title: Text("Step 2"),
                   content: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top:8.0),
+                        padding: const EdgeInsets.only(top: 8.0),
                         child: TextFormField(
-                          validator: (val){
-                            if( val!.isEmpty && val.length==0)
+                          validator: (val) {
+                            if (val!.isEmpty && val.length == 0)
                               return "enter correct email";
                           },
                           obscureText: true,
                           decoration: Methodes.buildInputDecoration(
-                              "Enter New Password",
-                              "8 symbol least",
+                              " Password",
+                              "",
                               Icon(Icons.lock, color: ColorManger.textcolor),
                               Icon(Icons.password)),
                         ),
@@ -263,13 +307,10 @@ class _RegisterViewState extends State<RegisterView> {
                       Padding(
                         padding: const EdgeInsets.only(top: 8),
                         child: TextFormField(
-                          validator: (v)
-                          {
-
-                          },
+                          validator: (v) {},
                           obscureText: true,
                           decoration: Methodes.buildInputDecoration(
-                              "Confirm New Password",
+                              "Confirm  Password",
                               "8 symbol least",
                               Icon(
                                 Icons.lock,
@@ -278,17 +319,6 @@ class _RegisterViewState extends State<RegisterView> {
                               null),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                Step(
-                  isActive: currentstep == 2,
-                  state:
-                      currentstep == 2 ? StepState.complete : StepState.disabled,
-                  title: Text("Step 3"),
-                  content: Column(
-                    children: [
-                        Text("data"),
                     ],
                   ),
                 ),
