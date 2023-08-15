@@ -23,10 +23,19 @@ class _VerfictionState extends State<Verfiction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Methodes.buildAppBar(
-          title: StringManger.Verfiction,
-          context: context,
-          routeleading: Routes.forgotPasswordRoutes),
+      appBar: AppBar(
+        elevation: 0,
+        title: Text(
+          "Varifcetion",
+          style: TextStyle(
+            color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromRGBO(187, 227, 227, 0.7333333333333333),
+        automaticallyImplyLeading: false,
+
+      ),
       body: Form(
         key: globalKey,
         child: Container(

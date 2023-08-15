@@ -56,6 +56,7 @@ class Methodes {
       color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
       iconSize: 27,
       onPressed: () {
+        Navigator.pop(context);
         Navigator.pushReplacementNamed(context, route);
       },
       icon: Icon(icon),
@@ -121,38 +122,32 @@ class Methodes {
       child: Text(
         text,
         style: TextStyle(
+          fontWeight: FontWeight.bold,
           color: ColorManger.textcolor,
         ),
       ),
     );
   }
 
-  static AnimatedButton elevetedButton(
+  static Widget elevetedButton(
       context, text,  navigator, GlobalKey<FormState> globalKey) {
-    return AnimatedButton(
-      text: text,
-      onPress: () {
-        if (!(globalKey.currentState!.validate())) {
-          return;
-        }
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => navigator),
-        );
-      },
-      gradient: ColorManger.x,
-
+    return Container(
       width: 100,
-      height: 50,
-      selectedGradientColor: ColorManger.x,
-      animationDuration: Duration(milliseconds: 500),
-      selectedTextColor: ColorManger.white,
-      isReverse: true,
-      transitionType: TransitionType.CENTER_LR_OUT,
-      animatedOn: AnimatedOn.onTap,
-      borderColor: ColorManger.white,
-      //animationDuration: Duration(milliseconds: 5000),
+      decoration: BoxDecoration(gradient: ColorManger.y),
+      child: TextButton(
+
+        child: Text(text,style: TextStyle(color: ColorManger.cyen50,fontSize: 20),),
+        onPressed: () {
+          if (!(globalKey.currentState!.validate())) {
+            return;
+          }
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => navigator),
+          );
+        },
+      ),
     );
   }
 static  Padding buildhomecard(BuildContext context, String text, String subtitle,
@@ -164,8 +159,8 @@ static  Padding buildhomecard(BuildContext context, String text, String subtitle
         alignment: Alignment.center,
         decoration: BoxDecoration(
             gradient: ColorManger.y, borderRadius: BorderRadius.circular(40)),
-        width: 400,
-        height: 100,
+        width: 350,
+        height: 90,
         child: ListTile(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(40))),
@@ -175,6 +170,7 @@ static  Padding buildhomecard(BuildContext context, String text, String subtitle
             style: TextStyle(fontSize: 11, color: Colors.grey.shade200),
           ),
           onTap: () {
+            Navigator.pop(context);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => routepath),
@@ -201,5 +197,19 @@ static  Padding buildhomecard(BuildContext context, String text, String subtitle
       ),
     );
   }
+ static Container buildContainerTextButton(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(gradient: ColorManger.y),
+        child: TextButton(
 
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> MainView()));
+            },
+            child: Text(
+
+              " Save Information",
+              style: TextStyle(color: ColorManger.cyen50,),
+
+            )));
+  }
 }

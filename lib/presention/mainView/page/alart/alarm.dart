@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../resource/color_manger.dart';
 
+
+
 class ALarm {
   double value;
-
   List<double> values;
-
   List<String> list;
-
   var timeintial;
-
   var controller;
-
   ALarm(
       {required this.value,
       required this.values,

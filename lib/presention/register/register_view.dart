@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:medicalapp2/methodes.dart';
@@ -14,10 +16,18 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   var c = TextEditingController();
+  String? valdrop = "Doctor";
+  List<String> list = ["Doctor", "Public"];
   var valueGender = "Male";
   var controllerdatepicker = TextEditingController();
-  var currentstep = 0;
+  int currentstep = 0;
+ onsteptapped(int val) {
 
+   setState(() {
+
+     currentstep = val;
+   });
+ }
   onStepCancel() {
     setState(() {
       if (currentstep > 0) currentstep = currentstep - 1;
@@ -25,16 +35,17 @@ class _RegisterViewState extends State<RegisterView> {
   }
 
   onStepContinue() {
-    if (!(globalKey.currentState!.validate())) {
-      return;
-    }
-    setState(() {
-      if (currentstep < 2) currentstep = currentstep + 1;
-      isactivestep = true;
-    });
+
+      setState(() {
+        if (currentstep <2) {
+          currentstep = currentstep+1;
+          isactivestep = true;
+        }
+      });
+
   }
 
-  var isactivestep = false;
+  bool isactivestep = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +62,10 @@ class _RegisterViewState extends State<RegisterView> {
 
                   canvasColor: ColorManger.textcolor,
                   colorScheme: Theme.of(context).colorScheme.copyWith(
-                    primary: ColorManger.background,
-                    background: ColorManger.cyen50,
+                    primary: ColorManger.cyen50,
+                    background: ColorManger.textcolor,
                     secondary: ColorManger.textcolor,
+
                   ),
                 ),
             child: Stepper(
@@ -85,13 +97,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ],
                 );
               },
-              onStepTapped: (val) {
-
-                setState(() {
-
-                  currentstep = val;
-                });
-              },
+              onStepTapped: onsteptapped,
               type: StepperType.horizontal,
               steps: [
                 Step(
@@ -101,10 +107,35 @@ class _RegisterViewState extends State<RegisterView> {
                         ? StepState.complete
                         : StepState.disabled,
 
-                    title: Text("Step 1",style: TextStyle(color: ColorManger.textcolor),),
+                    title: Text("Step 1",style: TextStyle(color: ColorManger.cyen50),),
                     content: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+
+                        Container(
+                          padding: EdgeInsets.only(left: 15),
+                          child: DropdownButtonFormField<String>(
+                              dropdownColor: ColorManger.cyen50,
+                              decoration: Methodes.buildInputDecoration(
+                                  "Account Type", "", null, null),
+                              style: TextStyle(
+                                color: ColorManger.textcolor,
+                                fontSize: 16,
+                              ),
+                              value: valdrop,
+                              items: list
+                                  .map((e) => DropdownMenuItem<String>(
+                                child: Text(e),
+                                value: e,
+                              ))
+                                  .toList(),
+                              onChanged: (String? val) {
+                                setState(() {
+                                  valdrop = val!;
+                                });
+                              }),
+                        ),
+
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: TextFormField(
@@ -154,6 +185,7 @@ class _RegisterViewState extends State<RegisterView> {
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             validator: (val) {
                               if (val!.isEmpty) return "please enter your name";
                             },
@@ -256,7 +288,7 @@ class _RegisterViewState extends State<RegisterView> {
                   title: Text("Step 3"),
                   content: Column(
                     children: [
-
+                        Text("data"),
                     ],
                   ),
                 ),

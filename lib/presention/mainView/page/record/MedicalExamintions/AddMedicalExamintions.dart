@@ -127,20 +127,7 @@ class _AddMedicalExamintionsState extends State<AddMedicalExamintions> {
                     decoration: Methodes.buildInputDecoration(
                         "Center name", "", null, null),
                   )),
-              Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: ColorManger.y,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: ElevatedButton(
-                    child: Text("Save"),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => MedicalExaminations()));
-                    },
-                  )
-              ),
+            Methodes.buildContainerTextButton(context),
             ],
           ),
         ),

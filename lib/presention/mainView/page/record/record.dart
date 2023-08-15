@@ -3,11 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalapp2/presention/mainView/page/content%20medical/itemmedical/surgeries.dart';
 import 'package:medicalapp2/presention/mainView/page/record/MedicalExamintions/Medical_examinations.dart';
 import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronic_diseases.dart';
-import 'package:medicalapp2/presention/mainView/page/record/date%20family.dart';
+import 'package:medicalapp2/presention/mainView/page/record/date_family/date_family.dart';
 import 'package:medicalapp2/presention/mainView/page/record/item.dart';
 import 'package:medicalapp2/presention/mainView/page/record/my_personal_information.dart';
-import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical.dart';
-import 'package:medicalapp2/presention/mainView/page/record/sensitivities.dart';
+import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical/pharmaceutical.dart';
+import 'package:medicalapp2/presention/mainView/page/record/sensitivities/sensitivities.dart';
 import 'package:medicalapp2/presention/mainView/page/record/surgeries/surgeries.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
@@ -25,33 +25,33 @@ class _RecordState extends State<Record> {
     ItemRecord(
         title: "My personal information",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.My_personal_information,route: MyPersonalInformation()),
+        suficon: ImageManger.health,route: MyPersonalInformation()),
     ItemRecord(
         title: "Medical examinations",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.date1,
+        suficon: ImageManger.laboratory,
     route: MedicalExaminations()),
     ItemRecord(
 
         title: "surgeries",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon:ImageManger.surgery,route: surgeries()),
+        suficon:ImageManger.hospital,route: surgeries()),
     ItemRecord(
         title: "chronic diseases",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.drug,route: ChronicDiseases()),
+        suficon: ImageManger.healthcare,route: ChronicDiseases()),
     ItemRecord(
         title: "pharmaceutical",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.pharmaceutical,route: pharmaceutical()),
+        suficon: ImageManger.drug,route: pharmaceutical()),
     ItemRecord(
         title: "sensitivities",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.sensitiv,route: Sensitivities()),
+        suficon: ImageManger.chill,route: Sensitivities()),
     ItemRecord(
         title: "Family history of illness",
         prficon: Icons.arrow_forward_ios_rounded,
-        suficon: ImageManger.date,route: DateFamily()),
+        suficon: ImageManger.heart,route: DateFamily()),
 
   ];
 
@@ -87,11 +87,12 @@ class _RecordState extends State<Record> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: SvgPicture.asset(
+                      child: Image.asset(
+                        color: ColorManger.white,
 
                         list[index].suficon,
-width: 24,
-                        height: 24,
+width: 32,
+                        height: 32,
                       ),
                       flex: 2,
                     ),

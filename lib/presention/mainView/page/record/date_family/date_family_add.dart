@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronic_diseases.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
-class ChronicAdd extends StatefulWidget {
-  const ChronicAdd({super.key});
+import 'date_family.dart';
+
+class DateFamilyAdd extends StatefulWidget {
+  const DateFamilyAdd({super.key});
 
   @override
-  State<ChronicAdd> createState() => _ChronicAddState();
+  State<DateFamilyAdd> createState() => _DateFamilyAddState();
 }
 
-class _ChronicAddState extends State<ChronicAdd> {
-  var controllermoreInfo = TextEditingController(text: "");
+class _DateFamilyAddState extends State<DateFamilyAdd> {
   var controllertitle = TextEditingController(text: "");
+  var controllerDropDawn = TextEditingController(text: "");
+  String value = "Dad";
+  List<String> list = [
+    "Father",
+    "Mother",
+    "Brother",
+    "Sister",
+    "Son/Daughter",
+    "Husband",
+    "wife",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +39,7 @@ class _ChronicAddState extends State<ChronicAdd> {
           },
         ),
         title: Text(
-          "Add Chronic Diseases",
+          "Add Medical Examintions",
           style: buildTextStyle(),
         ),
         centerTitle: true,
@@ -41,14 +53,14 @@ class _ChronicAddState extends State<ChronicAdd> {
             children: [
               ListTile(
                 title: Text(
-                  "Do you have chronic diseases?",
+                  "Does anyone in your family suffer from chronic diseases?",
                   style: TextStyle(
                       color: ColorManger.textcolor,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
                 subtitle: Text(
-                  "Enter the name of the disease and additional Information",
+                  "Enter the diseases he suffers from and the information that may interest the doctor about it",
                   style: buildTextStyle(),
                 ),
               ),
@@ -58,16 +70,26 @@ class _ChronicAddState extends State<ChronicAdd> {
                     controller: controllertitle,
                     style: buildTextStyle(),
                     decoration: Methodes.buildInputDecoration(
-                        "chronic diseases name", "", null, null),
+                        "Name  disease", "", null, null),
                   )),
               Container(
-                  margin: EdgeInsets.all(12),
-                  child: TextFormField(
-                    controller: controllermoreInfo,
+                margin: EdgeInsets.all(12),
+                child: DropdownButtonFormField(
+                  dropdownColor: ColorManger.cyen50,
                     decoration: Methodes.buildInputDecoration(
-                        "More info", "", null, null),
-                    style: buildTextStyle(),
-                  )),
+                        "degree of kinship", "", null, null),
+                    items: list
+                        .map((e) => DropdownMenuItem(
+                              child: Text(e),
+                              value: e,
+                            ))
+                        .toList(),
+                    onChanged: (val) {
+                      setState(() {
+                        value = val!;
+                      });
+                    }),
+              ),
               Methodes.buildContainerTextButton(context),
             ],
           ),
@@ -77,5 +99,4 @@ class _ChronicAddState extends State<ChronicAdd> {
   }
 
   TextStyle buildTextStyle() => TextStyle(color: ColorManger.textcolor);
-
 }

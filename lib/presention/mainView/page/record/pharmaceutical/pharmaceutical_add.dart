@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronic_diseases.dart';
+import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical/pharmaceutical_item.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
-class ChronicAdd extends StatefulWidget {
-  const ChronicAdd({super.key});
+import 'pharmaceutical.dart';
+class pharmaceuticalAdd extends StatefulWidget {
+  const pharmaceuticalAdd({super.key});
 
   @override
-  State<ChronicAdd> createState() => _ChronicAddState();
+  State<pharmaceuticalAdd> createState() => _pharmaceuticalAddState();
 }
 
-class _ChronicAddState extends State<ChronicAdd> {
-  var controllermoreInfo = TextEditingController(text: "");
-  var controllertitle = TextEditingController(text: "");
+class _pharmaceuticalAddState extends State<pharmaceuticalAdd> {
+  var controllermoreInfo =TextEditingController(text: "");
+  var controllertitle =TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -27,7 +28,7 @@ class _ChronicAddState extends State<ChronicAdd> {
           },
         ),
         title: Text(
-          "Add Chronic Diseases",
+          "Add Pharmaceutical",
           style: buildTextStyle(),
         ),
         centerTitle: true,
@@ -41,14 +42,14 @@ class _ChronicAddState extends State<ChronicAdd> {
             children: [
               ListTile(
                 title: Text(
-                  "Do you have chronic diseases?",
+                  "What medications are you taking?",
                   style: TextStyle(
                       color: ColorManger.textcolor,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
                 subtitle: Text(
-                  "Enter the name of the disease and additional Information",
+                  "Enter the name of the Drug and additional Information",
                   style: buildTextStyle(),
                 ),
               ),
@@ -58,7 +59,7 @@ class _ChronicAddState extends State<ChronicAdd> {
                     controller: controllertitle,
                     style: buildTextStyle(),
                     decoration: Methodes.buildInputDecoration(
-                        "chronic diseases name", "", null, null),
+                        " Pharmaceutical name", "", null, null),
                   )),
               Container(
                   margin: EdgeInsets.all(12),
@@ -68,7 +69,7 @@ class _ChronicAddState extends State<ChronicAdd> {
                         "More info", "", null, null),
                     style: buildTextStyle(),
                   )),
-              Methodes.buildContainerTextButton(context),
+            Methodes.buildContainerTextButton(context),
             ],
           ),
         ),

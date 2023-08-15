@@ -11,7 +11,7 @@ class ImageManger{
   static const String arrowright= "$imagepath/arrowright.svg";
   static const String whitecicle= "$imagepath/whitecircle.svg";
   static const String darkcicle= "$imagepath/darkcircle.svg";
-  static const String newpassword= "$imagepath/newpasswoed.svg";
+  static const String newpassword= "assets/images/security.png";
   static const String check= "$imagepath/check.svg";
   static const String group = "$imagepath/medical-low-resolution-color-logo.png";
   static const String ForgotPassword = "$imagepath/Forgotpassword.svg";
@@ -47,4 +47,7 @@ static const String  chill = "assets/images/itemcontentmedical/chill.png";
   static const String  surgery = "assets/svg_image/surgery.svg";
   static const String  date = "assets/svg_image/date.svg";
   static const String  date1 = "assets/svg_image/free_icon_1.svg";
+
+  // doctor
+  static const String  doctor = "assets/images/doctor.png";
 }

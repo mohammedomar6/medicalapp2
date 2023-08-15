@@ -124,20 +124,7 @@ class _surgeriesAddState extends State<surgeriesAdd> {
                     decoration: Methodes.buildInputDecoration(
                         "Place name", "", null, null),
                   )),
-              Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: ColorManger.y,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: ElevatedButton(
-                    child: Text("Save"),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => surgeries()));
-                    },
-                  )
-              ),
+              Methodes.buildContainerTextButton(context),
             ],
           ),
         ),

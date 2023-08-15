@@ -25,14 +25,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-          child: TextButton(
-        child: const Text("log out"),
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const LoginView()));
-        },
-      )),
+
       backgroundColor: ColorManger.background,
       appBar: AppBar(
         elevation: 0.2,

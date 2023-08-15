@@ -21,5 +21,6 @@ class ChatCubit extends Cubit<ChatState> {
   sendTextToChatGpt(String message) async {
     final result = await ChatRequest().sendMessageToChatgptr(message);
     result.fold((l) => null, (r) => emit(state.copyWith(message: r.model)));
+
   }
 }

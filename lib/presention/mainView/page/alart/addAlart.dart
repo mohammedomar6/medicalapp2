@@ -42,6 +42,15 @@ class _AddAlartState extends State<AddAlart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: ColorManger.textcolor,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
           title: Text(
             "Add Alart",
             style: TextStyle(color: ColorManger.textcolor),
@@ -58,7 +67,8 @@ class _AddAlartState extends State<AddAlart> {
             child: Column(
               children: [
                 Text(
-                    "Add the medications you use to your medical alerts so that we can remind you of them at the right time"),
+                  "Add the medications you use to your medical alerts so that we can remind you of them at the right time",
+                style: TextStyle(color: ColorManger.textcolor),),
                 TextFormField(
                   controller: controllerNameMedical,
                   validator: (value) {
@@ -178,13 +188,14 @@ class _AddAlartState extends State<AddAlart> {
                 ),
                 DropdownButtonFormField<String>(
                     decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: ColorManger.textcolor)),
                         label: Text("When to stop the medication"),
                         labelStyle: TextStyle(color: ColorManger.textcolor)),
                     value: dropdawnvalue,
                     items: list1
                         .map((e) => DropdownMenuItem(
                               value: e,
-                              child: Text(e),
+                              child: Text(e,style: TextStyle(color: ColorManger.textcolor),),
                             ))
                         .toList(),
                     onChanged: (String? v) {
@@ -258,13 +269,7 @@ class _AddAlartState extends State<AddAlart> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AlartDrugs(
-
-                                    alarm: aLarm,
-                                    list: list,
-                                    stop: list1,
-                                    controller: controllerNameMedical,
-                                  )));
+                              builder: (context) => AlartDrugs()));
                     },
                     child: Text(
                       "Add an alarm",

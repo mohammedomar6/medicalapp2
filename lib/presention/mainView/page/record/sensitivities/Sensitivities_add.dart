@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronic_diseases.dart';
+import 'package:medicalapp2/presention/mainView/page/record/sensitivities/sensitivities.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
-class ChronicAdd extends StatefulWidget {
-  const ChronicAdd({super.key});
+class SensitivitiesAdd extends StatefulWidget {
+  const SensitivitiesAdd({super.key});
 
   @override
-  State<ChronicAdd> createState() => _ChronicAddState();
+  State<SensitivitiesAdd> createState() => _SensitivitiesAddState();
 }
 
-class _ChronicAddState extends State<ChronicAdd> {
-  var controllermoreInfo = TextEditingController(text: "");
-  var controllertitle = TextEditingController(text: "");
+class _SensitivitiesAddState extends State<SensitivitiesAdd> {
+  var controllermoreInfo =TextEditingController(text: "");
+  var controllertitle =TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
@@ -27,7 +27,7 @@ class _ChronicAddState extends State<ChronicAdd> {
           },
         ),
         title: Text(
-          "Add Chronic Diseases",
+          "Add Sensitivities",
           style: buildTextStyle(),
         ),
         centerTitle: true,
@@ -41,14 +41,15 @@ class _ChronicAddState extends State<ChronicAdd> {
             children: [
               ListTile(
                 title: Text(
-                  "Do you have chronic diseases?",
+                  "Do you have Sensitivities?",
                   style: TextStyle(
                       color: ColorManger.textcolor,
                       fontWeight: FontWeight.bold,
+
                       fontSize: 20),
                 ),
                 subtitle: Text(
-                  "Enter the name of the disease and additional Information",
+                  "Enter the name of the Sensitivities and additional Information",
                   style: buildTextStyle(),
                 ),
               ),
@@ -58,7 +59,7 @@ class _ChronicAddState extends State<ChronicAdd> {
                     controller: controllertitle,
                     style: buildTextStyle(),
                     decoration: Methodes.buildInputDecoration(
-                        "chronic diseases name", "", null, null),
+                        "name senstivities", "", null, null),
                   )),
               Container(
                   margin: EdgeInsets.all(12),

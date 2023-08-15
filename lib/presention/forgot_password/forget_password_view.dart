@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalapp2/methodes.dart';
+import 'package:medicalapp2/presention/login/login_view.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
@@ -75,7 +76,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 Align(
                     alignment: Alignment.bottomLeft,
                     heightFactor: 3.5,
-                    child: Methodes.buildTextButton(context,StringManger.BacktoSignin,Routes.loginRoutes),),
+                    child: Methodes.buildTextButton(context,StringManger.BacktoSignin,LoginView()),),
 
               ],
             ),

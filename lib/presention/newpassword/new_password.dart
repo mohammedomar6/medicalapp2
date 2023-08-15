@@ -9,7 +9,6 @@ import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
 import 'package:medicalapp2/presention/verifaction/VarifictionView.dart';
-
 class NewPasswordView extends StatefulWidget {
   const NewPasswordView({Key? key}) : super(key: key);
 
@@ -22,10 +21,19 @@ class _NewPasswordViewState extends State<NewPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: Methodes.buildAppBar(
-            context: context,
-            title: StringManger.newPassword,
-            routeleading: Routes.forgotPasswordRoutes),
+        appBar:AppBar(
+          elevation: 0,
+          title: Text(
+            "New Password",
+            style: TextStyle(
+              color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
+            ),
+          ),
+          centerTitle: true,
+          backgroundColor: const Color.fromRGBO(187, 227, 227, 0.7333333333333333),
+            automaticallyImplyLeading: false,
+
+        ),
         body: Form(
           key: globalKey,
           child: Container(
@@ -37,14 +45,14 @@ class _NewPasswordViewState extends State<NewPasswordView> {
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    padding: EdgeInsets.only(left: 38),
+                    padding: EdgeInsets.only(left: 30),
                     //   color: ColorManger.background,
-                    width: 250,
+                    width: 200,
 
-                    height: 250,
-                    child: SvgPicture.asset(
-                      colorFilter: ColorFilter.mode(
-                          ColorManger.background, BlendMode.modulate),
+                    height: 200,
+                    child: Image.asset(
+
+                      color: ColorManger.textcolor,
                       ImageManger.newpassword,
                     ),
                   ),

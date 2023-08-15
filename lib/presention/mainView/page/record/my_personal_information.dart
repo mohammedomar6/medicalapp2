@@ -214,23 +214,13 @@ class _MyPersonalInformationState extends State<MyPersonalInformation> {
                   },
                 ),
               ),
-              Container(
-                  decoration: BoxDecoration(gradient: ColorManger.y),
-                  child: ElevatedButton(
-
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> MainView()));
-                      },
-                      child: Text(
-
-                        " Save Information",
-                        style: TextStyle(color: ColorManger.cyen50,),
-
-                      )))
+              Methodes.buildContainerTextButton(context),
             ],
           ),
         ),
       ),
     );
   }
+
+
 }

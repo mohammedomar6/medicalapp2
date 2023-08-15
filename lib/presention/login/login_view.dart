@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicalapp2/presention/forgot_password/forget_password_view.dart';
 import 'package:medicalapp2/presention/mainView/mainview.dart';
 import 'package:medicalapp2/presention/register/register_view.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
@@ -134,7 +135,7 @@ class _LoginViewState extends State<LoginView> {
                           onPressed: () {
                             setState(() {
                               if (x) {
-                                iconpassword = Icons.password;
+                                iconpassword = Icons.key_off;
                                 x = false;
                               } else {
                                 iconpassword = Icons.remove_red_eye_rounded;
@@ -160,7 +161,7 @@ class _LoginViewState extends State<LoginView> {
                       Methodes.buildTextButton(
                           context,
                           StringManger.Forgotpassword,
-                          Routes.forgotPasswordRoutes),
+                          ForgotPasswordView()),
                       Padding(
                         padding: const EdgeInsets.only(left: AppPadding.p8),
                         child: Row(
