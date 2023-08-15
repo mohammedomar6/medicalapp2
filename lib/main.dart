@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'app/app.dart';
 
 void main() {
-  OpenAI.apiKey = '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';
+  OpenAI.apiKey = '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';
 
   runApp(MyApp());
 }

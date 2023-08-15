@@ -1,14 +1,14 @@
 part of 'chat_cubit.dart';
 
 class ChatState {
-  final String? message;
-  const ChatState({this.message});
+  final List<Massage> messages;
+  const ChatState({
+    this.messages = const [],
+  });
 
   ChatState copyWith({
-    String? message,
+    List<Massage>? messages,
   }) {
-    return ChatState(
-      message: message ?? this.message,
-    );
+    return ChatState(messages: messages ?? this.messages);
   }
 }
