@@ -109,7 +109,7 @@ class _LoginViewState extends State<LoginView> {
                       TextFormField(
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
-                          if (value != null && value.isValidEmail()) {
+                          if (value != null && !value.isValidEmail()) {
                             return "enter your email";
                           }
                           return null;
