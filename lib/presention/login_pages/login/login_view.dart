@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicalapp2/app/validation.dart';
 import 'package:medicalapp2/domin/auth_repository.dart';
+import 'package:medicalapp2/presention/Doctor/DoctorScrren.dart';
 import 'package:medicalapp2/presention/login_pages/cubit/auth_cubit.dart';
 import 'package:medicalapp2/presention/login_pages/forgot_password/forget_password_view.dart';
 import 'package:medicalapp2/presention/login_pages/register/register_view.dart';
@@ -86,7 +87,9 @@ class _LoginViewState extends State<LoginView> {
                       Container(
                         padding: const EdgeInsets.only(left: 15),
                         child: DropdownButtonFormField<String>(
+
                             dropdownColor: ColorManger.cyen50,
+
                             decoration: Methodes.buildInputDecoration(
                                 "Account Type", "", null, null),
                             style: TextStyle(
@@ -173,12 +176,30 @@ class _LoginViewState extends State<LoginView> {
                       const SizedBox(
                         height: 25,
                       ),
-                      Methodes.elevetedButton(context, StringManger.Login,
-                          const MainView(), globalKey, () {
-                        cubit.login(LoginParams(
+                  Container(
+                    width: 100,
+                    decoration: BoxDecoration(gradient: ColorManger.y),
+                    child: TextButton(
+                      child: Text(
+                        StringManger.Login,
+                        style: TextStyle(color: ColorManger.cyen50, fontSize: 20),
+                      ),
+                      onPressed: () {
+                        if (!(globalKey.currentState!.validate())) {
+                          return;
+                        }
+                      /*  cubit.login(LoginParams(
                             email: emailController.text,
-                            password: passwordController.text));
-                      }),
+                            password: passwordController.text));*/
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => valdrop=='Public'?MainView():DoctorScreen()),
+                        );
+
+                      },
+                    ),
+                  ),
                       const SizedBox(
                         height: 50,
                       ),
