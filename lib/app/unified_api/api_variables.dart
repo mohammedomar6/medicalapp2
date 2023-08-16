@@ -4,23 +4,40 @@ class ApiVariables {
   /////////////
   ///General///
   /////////////
-  final _scheme = 'https';
-  final _host = "doctorsback-end.000webhostapp.com";
+ static const _scheme = 'https';
+  static const  _host = "doctorsback-end.000webhostapp.com";
   // final _host = '192.168.243.1';
   // final _port = 5000;
 
-  Uri _mainUri({
+  static Uri _mainUri({
     required String path,
-    Map<String, dynamic>? queryParameters,
+    Map<String,String>? params,
   }) {
     final uri = Uri(
       scheme: _scheme,
       host: _host,
-      // port: _port,
-      path: 'api/$path',
-      queryParameters: queryParameters,
+      path: path,
+      queryParameters: params,
     );
     log(uri.toString());
     return uri;
   }
+
+  static Uri _mobileUri({required String path, Map<String,String>? params }) =>
+      _mainUri(path: 'user/$path', params: params);
+
+  ///Auth
+  static Uri _auth({required String path}) => _mobileUri(path: 'auth/$path');
+
+  static Uri register() => _auth(path: 'register');
+
+  static Uri login() => _auth(path: 'login');
+
+  static Uri verifyAccount() => _auth(path: 'verifyaccount');
+
+  static Uri sendResetPasswordOTP() => _mobileUri(path: 'password/sendemail');
+
+  static Uri checkPasswordCode() => _mobileUri(path: 'password/checkCode');
+
+  static Uri changePassword() => _mobileUri(path: 'password/changePassword');
 }
