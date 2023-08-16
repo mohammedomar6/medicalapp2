@@ -12,6 +12,7 @@ import 'package:medicalapp2/presention/login_pages/cubit/auth_cubit.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
 
+import '../../Doctor/DoctorScrren.dart';
 import '../../mainView/mainview.dart';
 
 class RegisterView extends StatefulWidget {
@@ -26,7 +27,6 @@ class _RegisterViewState extends State<RegisterView> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-
   var confirmPasswordController = TextEditingController();
 
   String? accountTypeValue = "Doctor";
@@ -327,7 +327,7 @@ class _RegisterViewState extends State<RegisterView> {
                         Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
                           builder: (context) {
-                            return const MainView();
+                            return accountTypeValue=='Public'? MainView():DoctorScreen();
                           },
                         ), (route) => false);
                         Toaster.closeLoading();

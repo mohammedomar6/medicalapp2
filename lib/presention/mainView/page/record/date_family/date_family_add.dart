@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:medicalapp2/presention/mainView/page/record/date_family/date_family_item.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
+import 'cubit/date_family_cubit.dart';
 import 'date_family.dart';
 
 class DateFamilyAdd extends StatefulWidget {
-  const DateFamilyAdd({super.key});
 
+  DateFamilyAdd(this.dateFamilyCubit, {super.key});
+  DateFamilyCubit dateFamilyCubit;
   @override
   State<DateFamilyAdd> createState() => _DateFamilyAddState();
 }
@@ -90,7 +93,19 @@ class _DateFamilyAddState extends State<DateFamilyAdd> {
                       });
                     }),
               ),
-              Methodes.buildContainerTextButton(context),
+        Container(
+            decoration: BoxDecoration(gradient: ColorManger.y),
+            child: TextButton(
+                onPressed: () {
+                   widget.dateFamilyCubit.addDateFamily(DateFamilyItem(title: controllertitle.text, kinship: controllerDropDawn.text));
+                   Navigator.pop(context);
+                },
+                child: Text(
+                  " Save Information",
+                  style: TextStyle(
+                    color: ColorManger.cyen50,
+                  ),
+                ))),
             ],
           ),
         ),

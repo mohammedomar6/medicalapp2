@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/cubit/chronic_cubit.dart';
 
 import '../../../../resource/color_manger.dart';
 import 'chronic_add.dart';
@@ -12,13 +14,8 @@ class ChronicDiseases extends StatefulWidget {
 }
 
 class _ChronicDiseasesState extends State<ChronicDiseases> {
-  List<ChronicItem> list = [
-    ChronicItem(moreinfo: "skhskdfghskdfhgdskjg", nameDiseas: "naour"),
-    ChronicItem(moreinfo: "skhskdfghskdfhgdskjg", nameDiseas: "malad"),
-    ChronicItem(moreinfo: "skhskdfghskdfhgdskjg", nameDiseas: "malad"),
-    ChronicItem(moreinfo: "skhskdfghskdfhgdskjg", nameDiseas: "sugry"),
-  ];
 
+ChronicCubit chronicCubit = ChronicCubit();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +37,9 @@ class _ChronicDiseasesState extends State<ChronicDiseases> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.pop(context);
+
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ChronicAdd()));
+                    MaterialPageRoute(builder: (context) => ChronicAdd(chronicCubit)));
               },
               icon: Icon(
                 Icons.add,
@@ -51,73 +48,77 @@ class _ChronicDiseasesState extends State<ChronicDiseases> {
               ))
         ],
       ),
-      body: Container(
-        color: ColorManger.background,
-        child: ListView.builder(itemCount: list.length,itemBuilder: (context, index) {
-          return Container(
-            height: 125,
+      body: BlocConsumer<ChronicCubit,ChronicState>(
+        bloc: chronicCubit,
+        listener: (context,state){},
+        builder: (context,state)=>Container(
+          color: ColorManger.background,
+          child: ListView.builder(itemCount: state.list.length,itemBuilder: (context, index) {
+            return Container(
+              height: 125,
 
-            decoration: BoxDecoration(
-              color: ColorManger.background,
-            ),
-            margin: EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "name chronic diseases : ${list[index].nameDiseas}",
-                      style: TextStyle(color: ColorManger.textcolor),
-                    ),
-                    IconButton(onPressed: () {
-                      showDialog(context: context, builder: (context){
-                        return AlertDialog(
-                          backgroundColor: ColorManger.cyen50,
-                          actionsAlignment: MainAxisAlignment.center,
-                          content: Text("Are sure of the deleting process"),
-                          actions: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    list.removeAt(index);
-                                    Navigator.pop(context);
-                                  });
-                                },
-                                child: Text(
-                                  "Yes",
-                                  style: TextStyle(color: ColorManger.cyen50),
-                                ),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStatePropertyAll(
-                                        ColorManger.textcolor))),
-                            ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStatePropertyAll(
-                                        ColorManger.cyen50)),
-                                onPressed: () {
-                                  setState(() {
-                                    Navigator.pop(context);
-                                  });
-                                },
-                                child: Text(
-                                  "No",
-                                  style:
-                                  TextStyle(color: ColorManger.textcolor),
-                                )),
+              decoration: BoxDecoration(
+                color: ColorManger.background,
+              ),
+              margin: EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "name chronic diseases : ${state.list[index].nameDiseas}",
+                        style: TextStyle(color: ColorManger.textcolor),
+                      ),
+                      IconButton(onPressed: () {
+                        showDialog(context: context, builder: (context){
+                          return AlertDialog(
+                            backgroundColor: ColorManger.cyen50,
+                            actionsAlignment: MainAxisAlignment.center,
+                            content: Text("Are sure of the deleting process"),
+                            actions: [
+                              ElevatedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      state.list.removeAt(index);
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Yes",
+                                    style: TextStyle(color: ColorManger.cyen50),
+                                  ),
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(
+                                          ColorManger.textcolor))),
+                              ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(
+                                          ColorManger.cyen50)),
+                                  onPressed: () {
+                                    setState(() {
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                  child: Text(
+                                    "No",
+                                    style:
+                                    TextStyle(color: ColorManger.textcolor),
+                                  )),
 
-                          ],
-                        );
-                      });
-                    }, icon: Icon(Icons.delete)),
-                  ],
-                ),
-                Text("More info ${list[index].moreinfo}", style: TextStyle(color: ColorManger.textcolor),),
-              ],
-            ),
-          );
-        })),
+                            ],
+                          );
+                        });
+                      }, icon: Icon(Icons.delete)),
+                    ],
+                  ),
+                  Text("More info ${state.list[index].moreinfo}", style: TextStyle(color: ColorManger.textcolor),),
+                ],
+              ),
+            );
+          })),
+      ),
 
     );
   }

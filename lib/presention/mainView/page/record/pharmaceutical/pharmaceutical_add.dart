@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical/cubit/pharmaceutical_cubit.dart';
 import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical/pharmaceutical_item.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
 import 'pharmaceutical.dart';
 class pharmaceuticalAdd extends StatefulWidget {
-  const pharmaceuticalAdd({super.key});
-
+   pharmaceuticalAdd( this.pharmaCubit, {super.key});
+  PharmaCubit pharmaCubit ;
   @override
   State<pharmaceuticalAdd> createState() => _pharmaceuticalAddState();
 }
@@ -69,7 +70,19 @@ class _pharmaceuticalAddState extends State<pharmaceuticalAdd> {
                         "More info", "", null, null),
                     style: buildTextStyle(),
                   )),
-            Methodes.buildContainerTextButton(context),
+              Container(
+                  decoration: BoxDecoration(gradient: ColorManger.y),
+                  child: TextButton(
+                      onPressed: () {
+                       widget.pharmaCubit.add(PharmaceuticalItem(nameDrug: controllertitle.text,moreinfo: controllermoreInfo.text));
+
+                      },
+                      child: Text(
+                        " Save Information",
+                        style: TextStyle(
+                          color: ColorManger.cyen50,
+                        ),
+                      ))),
             ],
           ),
         ),

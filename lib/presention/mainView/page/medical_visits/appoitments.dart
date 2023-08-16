@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:medicalapp2/presention/mainView/page/medical_visits/DoctorItem.dart';
+import 'package:medicalapp2/presention/AppointmentBooking/DoctorItem.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 
-import 'appoitments_item.dart';
+import '../../../AppointmentBooking/appoitments_item.dart';
 
 class Appoitments extends StatefulWidget {
   const Appoitments({super.key});

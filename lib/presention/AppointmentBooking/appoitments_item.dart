@@ -1,4 +1,4 @@
-import 'package:medicalapp2/presention/mainView/page/medical_visits/DoctorItem.dart';
+import 'package:medicalapp2/presention/AppointmentBooking/DoctorItem.dart';
 
 class AppoitmentsItem{
   DoctorItem Doctor ;

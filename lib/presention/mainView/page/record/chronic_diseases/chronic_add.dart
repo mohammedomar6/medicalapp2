@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronic_diseases.dart';
+import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/chronicitem.dart';
+import 'package:medicalapp2/presention/mainView/page/record/chronic_diseases/cubit/chronic_cubit.dart';
 
 import '../../../../../methodes.dart';
 import '../../../../resource/color_manger.dart';
 class ChronicAdd extends StatefulWidget {
-  const ChronicAdd({super.key});
-
+  ChronicAdd(this.chronicCubit, {super.key});
+  ChronicCubit chronicCubit;
   @override
   State<ChronicAdd> createState() => _ChronicAddState();
 }
@@ -68,7 +70,19 @@ class _ChronicAddState extends State<ChronicAdd> {
                         "More info", "", null, null),
                     style: buildTextStyle(),
                   )),
-              Methodes.buildContainerTextButton(context),
+        Container(
+            decoration: BoxDecoration(gradient: ColorManger.y),
+            child: TextButton(
+                onPressed: () {
+                widget.chronicCubit.addChronic(ChronicItem(moreinfo: controllermoreInfo.text, nameDiseas: controllertitle.text));
+                Navigator.pop(context);
+                },
+                child: Text(
+                  " Save Information",
+                  style: TextStyle(
+                    color: ColorManger.cyen50,
+                  ),
+                ))),
             ],
           ),
         ),

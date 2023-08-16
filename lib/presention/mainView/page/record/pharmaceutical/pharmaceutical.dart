@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicalapp2/presention/mainView/page/record/pharmaceutical/pharmaceutical_item.dart';
 
 import '../../../../resource/color_manger.dart';
+import 'cubit/pharmaceutical_cubit.dart';
 import 'pharmaceutical_add.dart';
 class pharmaceutical extends StatefulWidget {
   const pharmaceutical({super.key});
@@ -11,10 +13,7 @@ class pharmaceutical extends StatefulWidget {
 }
 
 class _pharmaceuticalState extends State<pharmaceutical> {
-  List <PharmaceuticalItem> list =[
-    PharmaceuticalItem(moreinfo: "kcjkdfhkjf", nameDrug: "profeen"),
-    PharmaceuticalItem(moreinfo: "kcjkdfhkjf", nameDrug: "sitamol"),
-  ];
+  PharmaCubit pharmaCubit=PharmaCubit();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +37,7 @@ class _pharmaceuticalState extends State<pharmaceutical> {
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => pharmaceuticalAdd()));
+                    MaterialPageRoute(builder: (context) => pharmaceuticalAdd(pharmaCubit)));
               },
               icon: Icon(
                 Icons.add,
@@ -47,73 +46,77 @@ class _pharmaceuticalState extends State<pharmaceutical> {
               ))
         ],
       ),
-      body: Container(
-          color: ColorManger.background,
-          child: ListView.builder(itemCount: list.length,itemBuilder: (context, index) {
-            return Container(
-              height: 125,
+      body: BlocConsumer<PharmaCubit,PharmaState>(
+        bloc: pharmaCubit,
+        listener: (context,state){},
+          builder:(context,state)=> Container(
+            color: ColorManger.background,
+            child: ListView.builder(itemCount: state.list.length,itemBuilder: (context, index) {
+              return Container(
+                height: 125,
 
-              decoration: BoxDecoration(
-                color: ColorManger.background,
-              ),
-              margin: EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Pharmaceutical name  : ${list[index].nameDrug}",
-                        style: TextStyle(color: ColorManger.textcolor),
-                      ),
-                      IconButton(onPressed: () {
-                        showDialog(context: context, builder: (context){
-                          return AlertDialog(
-                            backgroundColor: ColorManger.cyen50,
-                            actionsAlignment: MainAxisAlignment.center,
-                            content: Text("Are sure of the deleting process"),
-                            actions: [
-                              ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      list.removeAt(index);
-                                      Navigator.pop(context);
-                                    });
-                                  },
-                                  child: Text(
-                                    "Yes",
-                                    style: TextStyle(color: ColorManger.cyen50),
-                                  ),
-                                  style: ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(
-                                          ColorManger.textcolor))),
-                              ElevatedButton(
-                                  style: ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(
-                                          ColorManger.cyen50)),
-                                  onPressed: () {
-                                    setState(() {
-                                      Navigator.pop(context);
-                                    });
-                                  },
-                                  child: Text(
-                                    "No",
-                                    style:
-                                    TextStyle(color: ColorManger.textcolor),
-                                  )),
+                decoration: BoxDecoration(
+                  color: ColorManger.background,
+                ),
+                margin: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Pharmaceutical name  : ${state.list[index].nameDrug}",
+                          style: TextStyle(color: ColorManger.textcolor),
+                        ),
+                        IconButton(onPressed: () {
+                          showDialog(context: context, builder: (context){
+                            return AlertDialog(
+                              backgroundColor: ColorManger.cyen50,
+                              actionsAlignment: MainAxisAlignment.center,
+                              content: Text("Are sure of the deleting process"),
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        state.list.removeAt(index);
+                                        Navigator.pop(context);
+                                      });
+                                    },
+                                    child: Text(
+                                      "Yes",
+                                      style: TextStyle(color: ColorManger.cyen50),
+                                    ),
+                                    style: ButtonStyle(
+                                        backgroundColor: MaterialStatePropertyAll(
+                                            ColorManger.textcolor))),
+                                ElevatedButton(
+                                    style: ButtonStyle(
+                                        backgroundColor: MaterialStatePropertyAll(
+                                            ColorManger.cyen50)),
+                                    onPressed: () {
+                                      setState(() {
+                                        Navigator.pop(context);
+                                      });
+                                    },
+                                    child: Text(
+                                      "No",
+                                      style:
+                                      TextStyle(color: ColorManger.textcolor),
+                                    )),
 
-                            ],
-                          );
-                        });
-                      }, icon: Icon(Icons.delete)),
-                    ],
-                  ),
-                  Text("More info ${list[index].moreinfo}", style: TextStyle(color: ColorManger.textcolor),),
-                ],
-              ),
-            );
-          })),
+                              ],
+                            );
+                          });
+                        }, icon: Icon(Icons.delete)),
+                      ],
+                    ),
+                    Text("More info ${state.list[index].moreinfo}", style: TextStyle(color: ColorManger.textcolor),),
+                  ],
+                ),
+              );
+            })),
+      ),
 
     );
   }

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:medicalapp2/presention/mainView/page/record/MedicalExamintions/Medical_examinations.dart';
+import 'package:medicalapp2/presention/mainView/page/record/MedicalExamintions/cubit/medical_exam_cubit.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 
 import '../../../../../methodes.dart';
 import 'ItemMedicalExam.dart';
 
 class AddMedicalExamintions extends StatefulWidget {
-  const AddMedicalExamintions({super.key});
+  AddMedicalExamintions(this.medicalExamCubit, {super.key});
+
+  MedicalExamCubit medicalExamCubit;
 
   @override
   State<AddMedicalExamintions> createState() => _AddMedicalExamintionsState();
@@ -17,7 +20,7 @@ class _AddMedicalExamintionsState extends State<AddMedicalExamintions> {
   var controllertitle = TextEditingController(text: "");
   var controllerresult = TextEditingController(text: "");
   var controllercenter = TextEditingController(text: "");
-  var controllerdatepicker = TextEditingController();
+  var controllerdatepicker = TextEditingController(text: "");
 
   @override
   Widget build(BuildContext context) {
@@ -75,46 +78,43 @@ class _AddMedicalExamintionsState extends State<AddMedicalExamintions> {
                     style: buildTextStyle(),
                   )),
               Container(
-
                   margin: EdgeInsets.all(12),
                   child: TextFormField(
-
                     controller: controllerdatepicker,
                     readOnly: true,
                     style: buildTextStyle(),
                     onTap: () {
                       showDatePicker(
-                          context: context,
-                          builder: (context, child) {
-                            return Theme(
-                              data: Theme.of(context).copyWith(
-                                colorScheme: ColorScheme.light(
-                                  primary: ColorManger.background,
-                                  // header background color
-                                  onPrimary: ColorManger.textcolor,
-                                  // header text color
-                                  onSurface: ColorManger
-                                      .textcolor, // body text color
-                                ),
-                                textButtonTheme: TextButtonThemeData(
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: ColorManger
-                                        .textcolor, // button text color
+                              context: context,
+                              builder: (context, child) {
+                                return Theme(
+                                  data: Theme.of(context).copyWith(
+                                    colorScheme: ColorScheme.light(
+                                      primary: ColorManger.background,
+                                      // header background color
+                                      onPrimary: ColorManger.textcolor,
+                                      // header text color
+                                      onSurface: ColorManger
+                                          .textcolor, // body text color
+                                    ),
+                                    textButtonTheme: TextButtonThemeData(
+                                      style: TextButton.styleFrom(
+                                        foregroundColor: ColorManger
+                                            .textcolor, // button text color
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              child: child!,
-                            );
-                          },
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime.utc(2010),
-                          lastDate: DateTime.now())
-                          .then((value) =>
-                      {
-                        controllerdatepicker.text = DateFormat.yMMMd()
-                            .format(value!)
-                            .toString(),
-                      });
+                                  child: child!,
+                                );
+                              },
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime.utc(2010),
+                              lastDate: DateTime.now())
+                          .then((value) => {
+                                controllerdatepicker.text = DateFormat.yMMMd()
+                                    .format(value!)
+                                    .toString(),
+                              });
                     },
                     decoration: Methodes.buildInputDecoration(
                         "Examination date", "", null, null),
@@ -127,7 +127,23 @@ class _AddMedicalExamintionsState extends State<AddMedicalExamintions> {
                     decoration: Methodes.buildInputDecoration(
                         "Center name", "", null, null),
                   )),
-            Methodes.buildContainerTextButton(context),
+              Container(
+                  decoration: BoxDecoration(gradient: ColorManger.y),
+                  child: TextButton(
+                      onPressed: () {
+                        widget.medicalExamCubit.addExam(ItemExam(
+                            title: controllertitle.text,
+                            result: controllerresult.text,
+                            dateTime: controllerdatepicker.text,
+                            Center: controllercenter.text));
+                             Navigator.pop(context);
+                      },
+                      child: Text(
+                        " Save Information",
+                        style: TextStyle(
+                          color: ColorManger.cyen50,
+                        ),
+                      ))),
             ],
           ),
         ),
