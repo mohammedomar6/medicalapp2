@@ -7,6 +7,25 @@ import 'package:medicalapp2/presention/resource/routes_manger.dart';
 import 'package:medicalapp2/presention/resource/values_manger.dart';
 
 class Methodes {
+   static AppBar buildAppBararrow(BuildContext context,title,) {
+    return AppBar(
+      backgroundColor: ColorManger.cyen50,
+      title: Text(
+        title,
+        style: TextStyle(color: ColorManger.textcolor),
+      ),
+      centerTitle: true,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back,
+          color: ColorManger.textcolor,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
+  }
   static InputDecoration buildInputDecoration(
       lebel, hintlebel, iconpref, suffixicon) {
     return InputDecoration(

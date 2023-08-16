@@ -10,7 +10,7 @@ class _NewsAndArticleState extends State<NewsAndArticle> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(title: Text("New"),),
+      appBar: AppBar(title: Text("News"),),
     );
   }
 }

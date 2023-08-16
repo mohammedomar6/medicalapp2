@@ -28,11 +28,11 @@ class _MedicalContentState extends State<MedicalContent> {
         title: "Diets",
         imageroute: ImageManger.diet,
         subtitle: "All diets and the best recipes"),
-    MedicalItem(
+    /*MedicalItem(
         route: NewsAndArticle(),
         title: "News and articles",
         imageroute: ImageManger.news,
-        subtitle: "The most important health articles and the latest news"),
+        subtitle: "The most important health articles and the latest news"),*/
     MedicalItem(
         route: EncyclopediaOfMedicines(),
         title: "Encyclopedia of Medicines",
@@ -48,11 +48,11 @@ class _MedicalContentState extends State<MedicalContent> {
         title: "Diseases",
         imageroute: ImageManger.heart,
         subtitle: "More than 100,000 diseases"),
-    MedicalItem(
+   /* MedicalItem(
         title: "Sensitivities",
         route: Sensitivities(),
         imageroute: ImageManger.sensitivity,
-        subtitle: "More than 1000 types of allergies"),
+        subtitle: "More than 1000 types of allergies"),*/
     MedicalItem(
         route: Symptoms(),
         title: "Symptoms",

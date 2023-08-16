@@ -8,7 +8,6 @@ import 'package:medicalapp2/presention/mainView/page/thememode.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
-
 import 'page/Acount.dart';
 import 'page/ReatsApp.dart';
 import 'page/record/record.dart';

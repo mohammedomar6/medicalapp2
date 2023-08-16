@@ -565,7 +565,7 @@
     {
       "name": "Gluten-Free Diet",
       "details": "The Gluten-Free Diet excludes gluten, a protein found in wheat, barley, and rye. It is necessary for individuals with celiac disease or gluten sensitivity but may require careful label reading.",
-      "image": "\"https://www.hopkinsmedicine.org/-/media/images/health/3_-wellness/food-and-nutrition/gluten-free-diet-teaser.jpg"
+      "image": "https://www.hopkinsmedicine.org/-/media/images/health/3_-wellness/food-and-nutrition/gluten-free-diet-teaser.jpg"
     },
     {
       "name": "Low-FODMAP Diet",
@@ -575,9 +575,620 @@
     {
       "name": "DASH Diet",
       "details": "The DASH (Dietary Approaches to Stop Hypertension) Diet aims to lower blood pressure. It emphasizes fruits, vegetables, whole grains, lean proteins, and low-fat dairy while reducing sodium intake.",
-      "image": "\"https://www.usatoday.com/gcdn/-mm-/615eb9b3dda3f2daf3ceb045278d833fb7918d51/c=0-286-5616-3459/local/-/media/2018/02/27/USATODAY/USATODAY/636553211596010748-GettyImages-903585546.jpg"
+      "image": "https://www.usatoday.com/gcdn/-mm-/615eb9b3dda3f2daf3ceb045278d833fb7918d51/c=0-286-5616-3459/local/-/media/2018/02/27/USATODAY/USATODAY/636553211596010748-GettyImages-903585546.jpg"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "Understanding Diabetes",
+      "details": "This article explores the causes, symptoms, and management of diabetes. It covers type 1 and type 2 diabetes, blood sugar monitoring, and lifestyle changes.",
+      "image": "https://example.com/diabetes_image.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Managing Anxiety: Tips for a Healthier Mind",
+      "details": "Learn about the different types of anxiety disorders, their symptoms, and effective coping strategies. This article provides insights into therapy options and relaxation techniques.",
+      "image": "https://example.com/anxiety_image.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Heart Health: The Importance of Exercise",
+      "details": "Discover the benefits of regular exercise on heart health. This article explains how physical activity can reduce the risk of heart disease, improve circulation, and strengthen the heart.",
+      "image": "https://example.com/heart_health_image.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Nutrition Essentials: Building a Balanced Diet",
+      "details": "Learn about the key components of a balanced diet and their role in maintaining overall health. This article provides tips for choosing nutrient-rich foods and creating healthy eating habits.",
+      "image": "https://example.com/nutrition_image.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Coping with Allergies: Tips for Relief",
+      "details": "Get insights into common allergies, their symptoms, and strategies for managing allergic reactions. This article covers allergy testing, allergen avoidance, and medication options.",
+      "image": "https://example.com/allergies_image.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Understanding Depression: Signs and Support",
+      "details": "Explore the signs and symptoms of depression, as well as available treatment options. This article emphasizes the importance of seeking help and offers guidance for supporting loved ones.",
+      "image": "https://example.com/depression_image.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Benefits of Sleep: Prioritizing Your Rest",
+      "details": "Learn about the importance of quality sleep for physical and mental well-being. This article provides tips for improving sleep hygiene and establishing healthy sleep patterns.",
+      "image": "https://example.com/sleep_image.jpg"
+    },
+    {
+      "id": 8,
+      "title": "A Guide to Healthy Aging",
+      "details": "Discover tips for maintaining vitality and well-being as you age. This article covers exercise, nutrition, cognitive health, and social engagement for a fulfilling senior life.",
+      "image": "https://example.com/aging_image.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Managing Chronic Pain: Strategies for Relief",
+      "details": "Explore various approaches to managing chronic pain, including medications, therapies, and lifestyle adjustments. This article offers insights into pain management techniques.",
+      "image": "https://example.com/pain_management_image.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Healthy Habits for Strong Immunity",
+      "details": "Learn how to strengthen your immune system through lifestyle choices. This article discusses the impact of diet, exercise, sleep, and stress management on immune function.",
+      "image": "https://example.com/immunity_image.jpg"
+    }
+  ],
+
+  "drugs": [
+    {
+      "name": "Atorvastatin",
+      "uses": "Cholesterol management",
+      "side_effects": "Muscle pain, liver problems"
+    },
+    {
+      "name": "Amlodipine",
+      "uses": "Hypertension, angina",
+      "side_effects": "Swelling in ankles/feet, dizziness"
+    },
+    {
+      "name": "Metoprolol",
+      "uses": "Hypertension, heart conditions",
+      "side_effects": "Fatigue, slow heartbeat, dizziness"
+    },
+    {
+      "name": "Prednisone",
+      "uses": "Inflammation, allergic reactions",
+      "side_effects": "Weight gain, mood changes, high blood pressure"
+    },
+    {
+      "name": "Ciprofloxacin",
+      "uses": "Bacterial infections",
+      "side_effects": "Nausea, diarrhea, tendon rupture risk"
+    },
+    {
+      "name": "Tramadol",
+      "uses": "Pain relief",
+      "side_effects": "Nausea, dizziness, constipation"
+    },
+    {
+      "name": "Sertraline",
+      "uses": "Depression, anxiety",
+      "side_effects": "Nausea, sexual dysfunction"
+    },
+    {
+      "name": "Hydrochlorothiazide",
+      "uses": "Hypertension, edema",
+      "side_effects": "Increased urination, low potassium levels"
+    },
+    {
+      "name": "Gabapentin",
+      "uses": "Neuropathic pain, seizures",
+      "side_effects": "Drowsiness, dizziness"
+    },
+    {
+      "name": "Lorazepam",
+      "uses": "Anxiety, insomnia",
+      "side_effects": "Drowsiness, memory problems"
+    },
+    {
+      "name": "Aspirin",
+      "uses": "Pain relief, fever reduction, anti-inflammatory",
+      "side_effects": "Stomach irritation, bleeding risk"
+    },
+    {
+      "name": "Lisinopril",
+      "uses": "Hypertension, heart failure",
+      "side_effects": "Cough, dizziness, increased potassium levels"
+    },
+    {
+      "name": "Levothyroxine",
+      "uses": "Hypothyroidism",
+      "side_effects": "Fast heartbeat, weight loss, insomnia"
+    },
+    {
+      "name": "Metformin",
+      "uses": "Type 2 diabetes",
+      "side_effects": "Nausea, diarrhea, low blood sugar"
+    },
+    {
+      "name": "Simvastatin",
+      "uses": "Cholesterol management",
+      "side_effects": "Muscle pain, liver problems"
+    },
+    {
+      "name": "Albuterol",
+      "uses": "Asthma, COPD",
+      "side_effects": "Shakiness, increased heart rate"
+    },
+    {
+      "name": "Omeprazole",
+      "uses": "Acid reflux, ulcers",
+      "side_effects": "Headache, stomach pain"
+    },
+    {
+      "name": "Citalopram",
+      "uses": "Depression, anxiety",
+      "side_effects": "Nausea, sexual dysfunction"
+    },
+    {
+      "name": "Warfarin",
+      "uses": "Anticoagulation",
+      "side_effects": "Bleeding risk, interactions with other drugs"
+    },
+    {
+      "name": "Ibuprofen",
+      "uses": "Pain relief, fever reduction, anti-inflammatory",
+      "side_effects": "Stomach irritation, increased blood pressure"
+    }
+  ],
+
+  "lab_tests": [
+    {
+      "name": "Complete Blood Count (CBC)",
+      "details": "Measures levels of red blood cells, white blood cells, and platelets. Used to assess overall health and detect various conditions.",
+      "purpose": "Diagnose anemia, infections, blood disorders.",
+      "normal_range": "Varies by age and gender.",
+      "image": "https://example.com/cbc_image.jpg"
+    },
+    {
+      "name": "Blood Glucose Test",
+      "details": "Measures the level of glucose (sugar) in the blood. Used to diagnose and monitor diabetes.",
+      "purpose": "Diagnose diabetes, monitor blood sugar levels.",
+      "normal_range": "Fasting: 70-100 mg/dL (3.9-5.6 mmol/L).",
+      "image": "https://example.com/glucose_test_image.jpg"
+    },
+    {
+      "name": "Lipid Profile",
+      "details": "Measures levels of cholesterol, triglycerides, and lipoproteins. Assess cardiovascular risk.",
+      "purpose": "Evaluate heart health, assess lipid abnormalities.",
+      "normal_range": "Total Cholesterol: <200 mg/dL (5.18 mmol/L).",
+      "image": "https://example.com/lipid_profile_image.jpg"
+    },
+    {
+      "name": "Thyroid Function Tests",
+      "details": "Includes TSH, T3, and T4 tests to assess thyroid gland function.",
+      "purpose": "Diagnose thyroid disorders, monitor thyroid function.",
+      "normal_range": "TSH: 0.4-4.0 mIU/L, T3: 80-200 ng/dL, T4: 4.5-11.2 mcg/dL.",
+      "image": "https://example.com/thyroid_tests_image.jpg"
+    },
+    {
+      "name": "Liver Function Tests (LFTs)",
+      "details": "Measures enzymes and proteins produced by the liver. Evaluates liver health and function.",
+      "purpose": "Diagnose liver diseases, monitor liver function.",
+      "normal_range": "Varies by specific test.",
+      "image": "https://example.com/liver_tests_image.jpg"
+    },
+    {
+      "name": "Kidney Function Tests",
+      "details": "Includes tests like creatinine and blood urea nitrogen (BUN). Evaluates kidney function.",
+      "purpose": "Detect kidney disorders, monitor kidney function.",
+      "normal_range": "Creatinine: 0.7-1.3 mg/dL, BUN: 7-20 mg/dL.",
+      "image": "https://example.com/kidney_tests_image.jpg"
+    },
+    {
+      "name": "Electrolyte Panel",
+      "details": "Measures levels of sodium, potassium, and chloride. Assesses electrolyte balance.",
+      "purpose": "Evaluate fluid and electrolyte status.",
+      "normal_range": "Sodium: 135-145 mEq/L, Potassium: 3.5-5.1 mEq/L.",
+      "image": "https://example.com/electrolyte_panel_image.jpg"
+    },
+    {
+      "name": "Coagulation Panel",
+      "details": "Includes tests like PT, INR, and PTT to assess blood clotting function.",
+      "purpose": "Monitor anticoagulant therapy, assess bleeding disorders.",
+      "normal_range": "Varies by specific test.",
+      "image": "https://example.com/coagulation_panel_image.jpg"
+    },
+    {
+      "name": "C-Reactive Protein (CRP)",
+      "details": "Measures inflammation in the body. Used to assess risk of heart disease and other conditions.",
+      "purpose": "Detect inflammation, assess cardiovascular risk.",
+      "normal_range": "Normal: <1 mg/L.",
+      "image": "https://example.com/crp_test_image.jpg"
+    },
+    {
+      "name": "Hemoglobin A1c",
+      "details": "Measures average blood sugar levels over the past 2-3 months. Used to monitor diabetes control.",
+      "purpose": "Monitor long-term glucose control in diabetes.",
+      "normal_range": "Normal: <5.7%, Diabetes: ≥6.5%.",
+      "image": "https://example.com/hba1c_test_image.jpg"
+    },
+    {
+      "name": "Urinalysis",
+      "details": "Analyzes urine for signs of infection, kidney disease, and other conditions.",
+      "purpose": "Detect urinary tract infections, assess kidney function.",
+      "normal_range": "Varies by specific test.",
+      "image": "https://example.com/urinalysis_image.jpg"
+    },
+    {
+      "name": "Vitamin D Test",
+      "details": "Measures the level of vitamin D in the blood. Assesses bone health and overall well-being.",
+      "purpose": "Evaluate vitamin D deficiency, monitor bone health.",
+      "normal_range": "Normal: 30-80 ng/mL.",
+      "image": "https://example.com/vitamin_d_test_image.jpg"
+    },
+    {
+      "name": "Rheumatoid Factor (RF)",
+      "details": "Detects the presence of rheumatoid factor antibodies. Used to diagnose rheumatoid arthritis.",
+      "purpose": "Diagnose rheumatoid arthritis.",
+      "normal_range": "Normal: <14 IU/mL.",
+      "image": "https://example.com/rf_test_image.jpg"
+    },
+    {
+      "name": "HIV Test",
+      "details": "Detects the presence of HIV antibodies or antigens. Used to diagnose HIV infection.",
+      "purpose": "Diagnose HIV infection.",
+      "normal_range": "Negative result: No presence of HIV antibodies or antigens.",
+      "image": "https://example.com/hiv_test_image.jpg"
+    },
+    {
+      "name": "Hepatitis Panel",
+      "details": "Includes tests for hepatitis A, B, and C viruses. Diagnoses and monitors hepatitis infections.",
+      "purpose": "Detect and monitor hepatitis infections.",
+      "normal_range": "Varies by specific test.",
+      "image": "https://example.com/hepatitis_panel_image.jpg"
+    },
+    {
+      "name": "Stool Occult Blood Test",
+      "details": "Detects hidden blood in stool samples. Used for early detection of gastrointestinal bleeding.",
+      "purpose": "Screen for gastrointestinal bleeding.",
+      "normal_range": "Negative result: No presence of blood.",
+      "image": "https://example.com/stool_occult_blood_test_image.jpg"
+    },
+    {
+      "name": "PSA Test",
+      "details": "Measures prostate-specific antigen levels in the blood. Used for prostate cancer screening.",
+      "purpose": "Screen for prostate cancer.",
+      "normal_range": "Varies by age and risk factors.",
+      "image": "https://example.com/psa_test_image.jpg"
+    },
+    {
+      "name": "Lung Function Tests",
+      "details": "Includes tests like spirometry to assess lung function and diagnose lung diseases.",
+      "purpose": "Diagnose lung diseases like asthma, COPD.",
+      "normal_range": "Varies by specific test.",
+      "image": "https://example.com/lung_tests_image.jpg"
+    },
+    {
+      "name": "Allergy Blood Tests",
+      "details": "Measures specific IgE antibodies to identify allergen sensitivities.",
+      "purpose": "Diagnose allergies and sensitivities.",
+      "normal_range": "Varies by specific allergen.",
+      "image": "https://example.com/allergy_blood_tests_image.jpg"
+    }
+  ],
+
+
+  "illnesses": [
+    {
+      "name": "Common Cold",
+      "symptoms": "Runny nose, sneezing, sore throat, coughing, mild fever.",
+      "treatment": "Rest, stay hydrated, over-the-counter cold remedies.",
+      "protection": "Frequent handwashing, avoiding close contact with sick individuals."
+    },
+    {
+      "name": "Influenza (Flu)",
+      "symptoms": "Fever, chills, cough, muscle aches, fatigue, headache.",
+      "treatment": "Rest, antiviral medications (if prescribed by a doctor).",
+      "protection": "Annual flu vaccination, good hygiene practices."
+    },
+    {
+      "name": "COVID-19",
+      "symptoms": "Fever, cough, shortness of breath, loss of taste or smell.",
+      "treatment": "Seek medical advice, supportive care.",
+      "protection": "Vaccination, wearing masks, social distancing, hand hygiene."
+    },
+    {
+      "name": "Diabetes",
+      "symptoms": "Increased thirst, frequent urination, fatigue, blurry vision.",
+      "treatment": "Lifestyle changes, medication (insulin or oral), monitoring blood sugar.",
+      "protection": "Maintain a healthy lifestyle, regular check-ups, manage weight."
+    },
+    {
+      "name": "Hypertension (High Blood Pressure)",
+      "symptoms": "Often no symptoms, but can lead to serious health issues.",
+      "treatment": "Lifestyle changes, medication, blood pressure monitoring.",
+      "protection": "Healthy diet, exercise, limit salt intake, regular check-ups."
+    },
+    {
+      "name": "Asthma",
+      "symptoms": "Shortness of breath, wheezing, coughing, chest tightness.",
+      "treatment": "Inhaled bronchodilators, corticosteroids, avoiding triggers.",
+      "protection": "Avoiding triggers (smoke, allergens), having an asthma action plan."
+    },
+    {
+      "name": "Heart Disease",
+      "symptoms": "Chest pain, shortness of breath, fatigue, irregular heartbeat.",
+      "treatment": "Lifestyle changes, medication, surgery (if needed).",
+      "protection": "Healthy diet, regular exercise, no smoking, stress management."
+    },
+    {
+      "name": "Stroke",
+      "symptoms": "Sudden numbness, confusion, trouble speaking, severe headache.",
+      "treatment": "Emergency medical attention, clot-dissolving drugs (if applicable).",
+      "protection": "Control blood pressure, maintain a healthy lifestyle."
+    },
+    {
+      "name": "Depression",
+      "symptoms": "Persistent sadness, loss of interest, fatigue, changes in appetite.",
+      "treatment": "Psychotherapy, medication, support groups.",
+      "protection": "Seek help early, talk to a mental health professional."
+    },
+    {
+      "name": "Anxiety",
+      "symptoms": "Excessive worry, restlessness, panic attacks, trouble sleeping.",
+      "treatment": "Therapy, medication, relaxation techniques.",
+      "protection": "Manage stress, practice relaxation, seek professional help if needed."
+    },
+    {
+      "name": "Obesity",
+      "symptoms": "Excessive body weight, increased risk of other health issues.",
+      "treatment": "Dietary changes, exercise, behavior modification.",
+      "protection": "Maintain a healthy weight, balanced diet, regular physical activity."
+    },
+    {
+      "name": "Arthritis",
+      "symptoms": "Joint pain, swelling, stiffness, decreased range of motion.",
+      "treatment": "Pain relievers, physical therapy, lifestyle changes.",
+      "protection": "Regular exercise, joint protection, maintaining a healthy weight."
+    },
+    {
+      "name": "Alzheimer's Disease",
+      "symptoms": "Memory loss, confusion, mood changes, difficulty performing tasks.",
+      "treatment": "No cure, but management of symptoms, support for caregivers.",
+      "protection": "Stay mentally and socially active, healthy lifestyle."
+    },
+    {
+      "name": "Cancer",
+      "symptoms": "Varies based on cancer type, may include unexplained weight loss, fatigue, pain.",
+      "treatment": "Surgery, chemotherapy, radiation, targeted therapies.",
+      "protection": "Healthy lifestyle, early detection screenings, avoid known carcinogens."
+    },
+    {
+      "name": "HIV/AIDS",
+      "symptoms": "Initial flu-like symptoms, followed by a period with few or no symptoms.",
+      "treatment": "Antiretroviral therapy (ART), managing associated health issues.",
+      "protection": "Safe sex practices, avoid sharing needles, get tested regularly."
+    },
+    {
+      "name": "Osteoporosis",
+      "symptoms": "Often no symptoms until a fracture occurs.",
+      "treatment": "Calcium and vitamin D, medication, fall prevention.",
+      "protection": "Healthy diet, weight-bearing exercises, avoid smoking, limit alcohol."
+    },
+    {
+      "name": "Pneumonia",
+      "symptoms": "Fever, chills, cough, shortness of breath, chest pain.",
+      "treatment": "Antibiotics, rest, fluids.",
+      "protection": "Pneumococcal vaccination, good hygiene, avoid close contact with sick individuals."
+    },
+    {
+      "name": "Gastroenteritis (Stomach Flu)",
+      "symptoms": "Nausea, vomiting, diarrhea, stomach cramps.",
+      "treatment": "Fluid replacement, rest, avoiding certain foods.",
+      "protection": "Good hygiene, avoid contaminated food and water, handwashing."
+    },
+    {
+      "name": "Epilepsy",
+      "symptoms": "Seizures, loss of consciousness, unusual sensations.",
+      "treatment": "Medication, lifestyle adjustments, surgery (in some cases).",
+      "protection": "Take medication as prescribed, seizure safety precautions."
+    },
+    {
+      "name": "Chronic Obstructive Pulmonary Disease (COPD)",
+      "symptoms": "Cough, shortness of breath, wheezing, chest tightness.",
+      "treatment": "Bronchodilators, steroids, oxygen therapy.",
+      "protection": "Avoid smoking, limit exposure to pollutants, manage symptoms."
+    },
+    {
+      "name": "Liver Disease",
+      "symptoms": "Fatigue, weight loss, jaundice, abdominal pain.",
+      "treatment": "Depends on the underlying cause, lifestyle changes.",
+      "protection": "Limit alcohol intake, avoid high-risk behaviors, get vaccinated for hepatitis."
+    },
+    {
+      "name": "Kidney Disease",
+      "symptoms": "Fatigue, swelling, changes in urination, nausea, high blood pressure.",
+      "treatment": "Medication, dialysis, kidney transplant (in severe cases).",
+      "protection": "Control blood pressure, manage diabetes, stay hydrated."
+    },
+    {
+      "name": "Allergies",
+      "symptoms": "Sneezing, runny nose, itchy/watery eyes, skin rash.",
+      "treatment": "Avoid allergens, antihistamines, allergy shots.",
+      "protection": "Identify triggers, allergy-proof home, keep windows closed during pollen season."
+    },
+    {
+      "name": "Migraine",
+      "symptoms": "Severe headache, often one-sided, nausea, sensitivity to light/sound.",
+      "treatment": "Pain relievers, lifestyle changes, preventive medications.",
+      "protection": "Identify triggers, manage stress, maintain a consistent routine."
+    },
+    {
+      "name": "Sleep Apnea",
+      "symptoms": "Loud snoring, pauses in breathing during sleep, daytime sleepiness.",
+      "treatment": "Continuous Positive Airway Pressure (CPAP), lifestyle changes.",
+      "protection": "Maintain a healthy weight, avoid alcohol and sedatives before bedtime."
+    },
+    {
+      "name": "Rheumatoid Arthritis",
+      "symptoms": "Joint pain, swelling, stiffness, fatigue, loss of joint function.",
+      "treatment": "Medication, physical therapy, lifestyle changes.",
+      "protection": "Early diagnosis, regular check-ups, manage inflammation."
+    },
+    {
+      "name": "Autoimmune Disorders",
+      "symptoms": "Varies based on disorder, may include fatigue, joint pain, rashes.",
+      "treatment": "Depends on the specific disorder, medication, lifestyle changes.",
+      "protection": "Understand risk factors, manage stress, follow treatment plans."
+    }
+  ],
+
+  "surgeries": [
+    {
+      "name": "Appendectomy",
+      "details": "A surgical removal of the appendix, often due to appendicitis, an inflamed appendix.",
+      "uses": "Treat acute appendicitis.",
+      "complications": "Infection, bleeding, injury to nearby organs.",
+      "image": "https://example.com/appendectomy_image.jpg"
+    },
+    {
+      "name": "Cholecystectomy",
+      "details": "Surgical removal of the gallbladder, often due to gallstones causing pain or inflammation.",
+      "uses": "Treat gallstones, gallbladder inflammation.",
+      "complications": "Bile leakage, infection, injury to bile ducts.",
+      "image": "https://example.com/cholecystectomy_image.jpg"
+    },
+    {
+      "name": "Hernia Repair",
+      "details": "Restoring a hernia back into its proper place and strengthening the abdominal wall.",
+      "uses": "Repair inguinal, umbilical, or hiatal hernias.",
+      "complications": "Recurrence, infection, nerve damage.",
+      "image": "https://example.com/hernia_repair_image.jpg"
+    },
+    {
+      "name": "Cataract Surgery",
+      "details": "Removing the cloudy lens of the eye and replacing it with an artificial lens.",
+      "uses": "Treat cataracts causing vision problems.",
+      "complications": "Infection, bleeding, retinal detachment.",
+      "image": "https://example.com/cataract_surgery_image.jpg"
+    },
+    {
+      "name": "Coronary Artery Bypass Graft (CABG)",
+      "details": "Creating new pathways for blood flow to the heart by using blood vessels from other parts of the body.",
+      "uses": "Treat severe coronary artery disease.",
+      "complications": "Infection, bleeding, graft failure.",
+      "image": "https://example.com/cabg_surgery_image.jpg"
+    },
+    {
+      "name": "Knee Replacement",
+      "details": "Replacing a damaged knee joint with an artificial joint.",
+      "uses": "Treat severe knee arthritis or injury.",
+      "complications": "Infection, blood clots, implant loosening.",
+      "image": "https://example.com/knee_replacement_image.jpg"
+    },
+    {
+      "name": "Hip Replacement",
+      "details": "Replacing a damaged hip joint with an artificial joint.",
+      "uses": "Treat severe hip arthritis or injury.",
+      "complications": "Infection, blood clots, implant dislocation.",
+      "image": "https://example.com/hip_replacement_image.jpg"
+    },
+    {
+      "name": "Lumbar Discectomy",
+      "details": "Removing part of a herniated disc to relieve pressure on spinal nerves.",
+      "uses": "Treat herniated lumbar disc causing pain and numbness.",
+      "complications": "Nerve injury, infection, recurrent disc herniation.",
+      "image": "https://example.com/lumbar_discectomy_image.jpg"
+    },
+    {
+      "name": "Thyroidectomy",
+      "details": "Surgical removal of all or part of the thyroid gland.",
+      "uses": "Treat thyroid cancer, hyperthyroidism.",
+      "complications": "Voice changes, hypothyroidism, bleeding.",
+      "image": "https://example.com/thyroidectomy_image.jpg"
+    },
+    {
+      "name": "Mastectomy",
+      "details": "Surgical removal of one or both breasts.",
+      "uses": "Treat breast cancer or reduce cancer risk.",
+      "complications": "Infection, bleeding, lymphedema.",
+      "image": "https://example.com/mastectomy_image.jpg"
+    },
+    {
+      "name": "Laparoscopic Gastric Bypass",
+      "details": "Reducing the size of the stomach and rerouting the small intestine to promote weight loss.",
+      "uses": "Treat severe obesity.",
+      "complications": "Infection, nutritional deficiencies, gastric leakage.",
+      "image": "https://example.com/gastric_bypass_image.jpg"
+    },
+    {
+      "name": "Laparoscopic Cholecystectomy",
+      "details": "Minimally invasive removal of the gallbladder.",
+      "uses": "Treat gallstones, gallbladder inflammation.",
+      "complications": "Bile leakage, infection, injury to bile ducts.",
+      "image": "https://example.com/laparoscopic_cholecystectomy_image.jpg"
+    },
+    {
+      "name": "Lung Resection",
+      "details": "Surgical removal of part or all of a lung.",
+      "uses": "Treat lung cancer, lung infections.",
+      "complications": "Pneumonia, bleeding, air leaks.",
+      "image": "https://example.com/lung_resection_image.jpg"
+    },
+    {
+      "name": "Spinal Fusion",
+      "details": "Joining two or more vertebrae together to stabilize the spine.",
+      "uses": "Treat spinal instability, deformities.",
+      "complications": "Failed fusion, infection, nerve injury.",
+      "image": "https://example.com/spinal_fusion_image.jpg"
+    },
+    {
+      "name": "Gallbladder Removal",
+      "details": "Surgical removal of the gallbladder.",
+      "uses": "Treat gallstones, gallbladder inflammation.",
+      "complications": "Bile leakage, infection, injury to bile ducts.",
+      "image": "https://example.com/gallbladder_removal_image.jpg"
+    },
+    {
+      "name": "Total Hysterectomy",
+      "details": "Surgical removal of the uterus.",
+      "uses": "Treat uterine fibroids, endometriosis, cancer.",
+      "complications": "Infection, bleeding, hormonal changes.",
+      "image": "https://example.com/total_hysterectomy_image.jpg"
+    },
+    {
+      "name": "Prostatectomy",
+      "details": "Surgical removal of all or part of the prostate gland.",
+      "uses": "Treat prostate cancer, urinary problems.",
+      "complications": "Infection, urinary incontinence, impotence.",
+      "image": "https://example.com/prostatectomy_image.jpg"
+    },
+    {
+      "name": "Colon Resection",
+      "details": "Surgical removal of part of the colon.",
+      "uses": "Treat colon cancer, diverticulitis.",
+      "complications": "Infection, bleeding, anastomotic leakage.",
+      "image": "https://example.com/colon_resection_image.jpg"
+    },
+    {
+      "name": "Tracheostomy",
+      "details": "Creating an opening in the neck to insert a breathing tube into the trachea.",
+      "uses": "Provide an airway for breathing.",
+      "complications": "Infection, bleeding, tube displacement.",
+      "image": "https://example.com/tracheostomy_image.jpg"
     }
   ]
+
+
+
+
+
+
+
+
 
 
 }
