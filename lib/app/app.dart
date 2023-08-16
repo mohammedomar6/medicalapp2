@@ -1,12 +1,13 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
+
 import '../presention/resource/routes_manger.dart';
-import '../presention/resource/thame_manger.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp._internal();
+  const MyApp._internal();
 
-  static final MyApp instance = MyApp._internal();
+  static final MyApp instance = const MyApp._internal();
 
   factory MyApp() => instance;
 
@@ -18,8 +19,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: BotToastInit(),
       theme: ThemeData(
-
         textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
                 textStyle: MaterialStateProperty.all(TextStyle(

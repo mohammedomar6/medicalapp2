@@ -2,10 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:medicalapp2/app/toaster.dart';
+import 'package:medicalapp2/app/validation.dart';
+import 'package:medicalapp2/domin/auth_repository.dart';
 import 'package:medicalapp2/methodes.dart';
+import 'package:medicalapp2/presention/login_pages/cubit/auth_cubit.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/routes_manger.dart';
+
+import '../../mainView/mainview.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -16,11 +23,17 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-  var c = TextEditingController();
-  String? valdrop = "Doctor";
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  var confirmPasswordController = TextEditingController();
+
+  String? accountTypeValue = "Doctor";
+
   var value = "Anesthesiology";
   var item = [];
-
+  AuthCubit cubit = AuthCubit();
   List<String> list = ["Doctor", "Public"];
   var valueGender = "Male";
   var controllerdatepicker = TextEditingController();
@@ -40,9 +53,18 @@ class _RegisterViewState extends State<RegisterView> {
 
   onStepContinue() {
     setState(() {
-      if (currentstep < 1) {
+      if (currentstep < 1 && formKey.currentState!.validate()) {
         currentstep = currentstep + 1;
         isactivestep = true;
+      } else if (currentstep >= 1) {
+        cubit.register(RegisterParams(
+          email: emailController.text,
+          password: passwordController.text,
+          confirmPassword: confirmPasswordController.text,
+          name: nameController.text,
+          accountType: accountTypeValue!,
+          birthDate: controllerdatepicker.text,
+        ));
       }
     });
   }
@@ -64,6 +86,8 @@ class _RegisterViewState extends State<RegisterView> {
       readjson();
     });
   }
+
+  var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -92,18 +116,18 @@ class _RegisterViewState extends State<RegisterView> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                        margin: EdgeInsets.all(12),
+                        margin: const EdgeInsets.all(12),
                         color: ColorManger.textcolor,
                         child: TextButton(
                           onPressed: v.onStepContinue,
                           child: Text(
-                            "Continou",
+                            "Continue",
                             style: TextStyle(color: ColorManger.cyen50),
                           ),
                         )),
                     Container(
                         color: ColorManger.textcolor,
-                        margin: EdgeInsets.all(12),
+                        margin: const EdgeInsets.all(12),
                         child: TextButton(
                             onPressed: v.onStepCancel,
                             child: Text(
@@ -125,201 +149,239 @@ class _RegisterViewState extends State<RegisterView> {
                       "Step 1",
                       style: TextStyle(color: ColorManger.cyen50),
                     ),
-                    content: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 15),
-                          child: DropdownButtonFormField<String>(
-                              dropdownColor: ColorManger.cyen50,
-                              decoration: Methodes.buildInputDecoration(
-                                  "Account Type", "", null, null),
-                              style: TextStyle(
-                                color: ColorManger.textcolor,
-                                fontSize: 16,
-                              ),
-                              value: valdrop,
-                              items: list
-                                  .map((e) => DropdownMenuItem<String>(
-                                        child: Text(e),
-                                        value: e,
-                                      ))
-                                  .toList(),
-                              onChanged: (String? val) {
-                                setState(() {
-                                  valdrop = val!;
-                                });
-                              }),
-                        ),
-                        if (valdrop == "Doctor")
+                    content: Form(
+                      key: formKey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
                           Container(
-                            //  height: 75,
-                            padding: EdgeInsets.only(left: 15),
-
+                            padding: const EdgeInsets.only(left: 15),
                             child: DropdownButtonFormField<String>(
-                                isExpanded: true,
                                 dropdownColor: ColorManger.cyen50,
                                 decoration: Methodes.buildInputDecoration(
-                                    "Medical specialty", "", null, null),
+                                    "Account Type", "", null, null),
                                 style: TextStyle(
                                   color: ColorManger.textcolor,
                                   fontSize: 16,
                                 ),
-                                value: value,
-                                items: item
+                                value: accountTypeValue,
+                                items: list
                                     .map((e) => DropdownMenuItem<String>(
-                                          child: Text(e),
                                           value: e,
+                                          child: Text(e),
                                         ))
                                     .toList(),
                                 onChanged: (String? val) {
                                   setState(() {
-                                    value = val!;
+                                    accountTypeValue = val!;
                                   });
                                 }),
                           ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: TextFormField(
-                            controller: c,
-                            validator: (val) {
-                              if (c.text.isEmpty)
-                                return "please enter your name";
-                            },
-                            decoration: Methodes.buildInputDecoration(
-                                "First Name", "", Icon(Icons.person), null),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: TextFormField(
-                            validator: (val) {
-                              if (val!.isEmpty) return "please enter your name";
-                            },
-                            decoration: Methodes.buildInputDecoration(
-                                "Last Name", "", Icon(Icons.person), null),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: DropdownButtonFormField(
-                              dropdownColor: ColorManger.background,
+                          if (accountTypeValue == "Doctor")
+                            Container(
+                              //  height: 75,
+                              padding: const EdgeInsets.only(left: 15),
+
+                              child: DropdownButtonFormField<String>(
+                                  isExpanded: true,
+                                  dropdownColor: ColorManger.cyen50,
+                                  decoration: Methodes.buildInputDecoration(
+                                      "Medical specialty", "", null, null),
+                                  style: TextStyle(
+                                    color: ColorManger.textcolor,
+                                    fontSize: 16,
+                                  ),
+                                  value: value,
+                                  items: item
+                                      .map((e) => DropdownMenuItem<String>(
+                                            value: e,
+                                            child: Text(e),
+                                          ))
+                                      .toList(),
+                                  onChanged: (String? val) {
+                                    setState(() {
+                                      value = val!;
+                                    });
+                                  }),
+                            ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: TextFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              controller: nameController,
+                              validator: (val) {
+                                if (val != null && val.length < 3) {
+                                  return "please enter your name";
+                                }
+                                return null;
+                              },
                               decoration: Methodes.buildInputDecoration(
-                                  "Gender",
+                                  "Full Name",
                                   "",
-                                  valueGender == "Male"
-                                      ? Icon(Icons.male)
-                                      : Icon(Icons.female),
+                                  const Icon(Icons.person),
                                   null),
-                              value: "",
-                              items: ["", "Male", "Female"]
-                                  .map((e) => DropdownMenuItem<String>(
-                                        child: Text(e),
-                                        value: e,
-                                      ))
-                                  .toList(),
-                              onChanged: (val) {
-                                setState(() {
-                                  valueGender = val!;
-                                });
-                              }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (val) {
-                              if (val!.isEmpty) return "please enter your name";
-                            },
-                            decoration: Methodes.buildInputDecoration(
-                                "EMail", "", Icon(Icons.email), null),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8),
-                          child: TextFormField(
-                            controller: controllerdatepicker,
-                            readOnly: true,
-                            decoration: Methodes.buildInputDecoration(
-                                "Date ", "", Icon(Icons.date_range), null),
-                            onTap: () {
-                              showDatePicker(
-                                  context: context,
-                                  builder: (context, child) {
-                                    return Theme(
-                                      data: Theme.of(context).copyWith(
-                                        colorScheme: ColorScheme.light(
-                                          primary: ColorManger.background,
-                                          // header background color
-                                          onPrimary: ColorManger.textcolor,
-                                          // header text color
-                                          onSurface: ColorManger
-                                              .textcolor, // body text color
-                                        ),
-                                        textButtonTheme: TextButtonThemeData(
-                                          style: TextButton.styleFrom(
-                                            foregroundColor: ColorManger
-                                                .textcolor, // button text color
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: DropdownButtonFormField(
+                                dropdownColor: ColorManger.background,
+                                decoration: Methodes.buildInputDecoration(
+                                    "Gender",
+                                    "",
+                                    valueGender == "Male"
+                                        ? const Icon(Icons.male)
+                                        : const Icon(Icons.female),
+                                    null),
+                                value: "",
+                                items: ["", "Male", "Female"]
+                                    .map((e) => DropdownMenuItem<String>(
+                                          value: e,
+                                          child: Text(e),
+                                        ))
+                                    .toList(),
+                                onChanged: (val) {
+                                  setState(() {
+                                    valueGender = val!;
+                                  });
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: TextFormField(
+                              controller: emailController,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (val) =>
+                                  val != null && val.isValidEmail()
+                                      ? null
+                                      : 'Please Add Correct Email',
+                              decoration: Methodes.buildInputDecoration(
+                                  "EMail", "", const Icon(Icons.email), null),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: TextFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              controller: controllerdatepicker,
+                              readOnly: true,
+                              decoration: Methodes.buildInputDecoration("Date ",
+                                  "", const Icon(Icons.date_range), null),
+                              onTap: () {
+                                showDatePicker(
+                                    context: context,
+                                    builder: (context, child) {
+                                      return Theme(
+                                        data: Theme.of(context).copyWith(
+                                          colorScheme: ColorScheme.light(
+                                            primary: ColorManger.background,
+                                            // header background color
+                                            onPrimary: ColorManger.textcolor,
+                                            // header text color
+                                            onSurface: ColorManger
+                                                .textcolor, // body text color
+                                          ),
+                                          textButtonTheme: TextButtonThemeData(
+                                            style: TextButton.styleFrom(
+                                              foregroundColor: ColorManger
+                                                  .textcolor, // button text color
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      child: child!,
-                                    );
-                                  },
-                                  initialDate: DateTime(2000),
-                                  firstDate: DateTime(1970),
-                                  lastDate: DateTime.utc(
-                                    2003,
-                                  )).then((value) => {
-                                    controllerdatepicker.text =
-                                        DateFormat.yMMMd()
-                                            .format(value!)
-                                            .toString(),
-                                  });
-                            },
-                          ),
-                        )
-                      ],
+                                        child: child!,
+                                      );
+                                    },
+                                    initialDate: DateTime(2000),
+                                    firstDate: DateTime(1970),
+                                    lastDate: DateTime.utc(
+                                      2003,
+                                    )).then((value) => {
+                                      controllerdatepicker.text =
+                                          DateFormat.yMMMd()
+                                              .format(value!)
+                                              .toString(),
+                                    });
+                              },
+                            ),
+                          )
+                        ],
+                      ),
                     )),
                 Step(
                   isActive: currentstep == 1,
                   state: currentstep == 1
                       ? StepState.complete
                       : StepState.disabled,
-                  title: Text("Step 2"),
-                  content: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: TextFormField(
-                          validator: (val) {
-                            if (val!.isEmpty && val.length == 0)
-                              return "enter correct email";
+                  title: const Text("Step 2"),
+                  content: BlocConsumer<AuthCubit, AuthState>(
+                    bloc: cubit,
+                    listener: (context, state) {
+                      if (state.status == AuthStatus.loading) {
+                        Toaster.showLoading();
+                      } else if (state.status == AuthStatus.success ||
+                          state.status == AuthStatus.failed) {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                          builder: (context) {
+                            return const MainView();
                           },
-                          obscureText: true,
-                          decoration: Methodes.buildInputDecoration(
-                              " Password",
-                              "",
-                              Icon(Icons.lock, color: ColorManger.textcolor),
-                              Icon(Icons.password)),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: TextFormField(
-                          validator: (v) {},
-                          obscureText: true,
-                          decoration: Methodes.buildInputDecoration(
-                              "Confirm  Password",
-                              "8 symbol least",
-                              Icon(
-                                Icons.lock,
-                                color: ColorManger.textcolor,
-                              ),
-                              null),
-                        ),
-                      ),
-                    ],
+                        ), (route) => false);
+                        Toaster.closeLoading();
+                      }
+                    },
+                    builder: (context, state) {
+                      return Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: TextFormField(
+                              controller: passwordController,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (val) =>
+                                  val != null && val.isValidPassword()
+                                      ? null
+                                      : 'Please Add Correct Email',
+                              obscureText: true,
+                              decoration: Methodes.buildInputDecoration(
+                                  " Password",
+                                  "",
+                                  Icon(Icons.lock,
+                                      color: ColorManger.textcolor),
+                                  const Icon(Icons.password)),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: TextFormField(
+                              controller: confirmPasswordController,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (v) {
+                                if (v != null && v != passwordController.text) {
+                                  return 'Passwords Didn\'t MAtch';
+                                } else {
+                                  return null;
+                                }
+                              },
+                              obscureText: true,
+                              decoration: Methodes.buildInputDecoration(
+                                  "Confirm  Password",
+                                  "8 symbol least",
+                                  Icon(
+                                    Icons.lock,
+                                    color: ColorManger.textcolor,
+                                  ),
+                                  null),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               ],
@@ -332,7 +394,7 @@ class _RegisterViewState extends State<RegisterView> {
           color: ColorManger.background,
           child: Column(
             children: [
-              TextFormField(
+              TextFormField(  autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: c,
                 validator: (val) {
                   if (c.text.isEmpty) return "please enter your name";
@@ -340,7 +402,7 @@ class _RegisterViewState extends State<RegisterView> {
                 decoration: Methodes.buildInputDecoration(
                     "First Name", "", Icon(Icons.person), null),
               ),
-              TextFormField(
+              TextFormField(  autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (val) {
                   if (val!.isEmpty) return "please enter your name";
                 },
@@ -367,21 +429,21 @@ class _RegisterViewState extends State<RegisterView> {
                       valueGender = val!;
                     });
                   }),
-              TextFormField(
+              TextFormField(  autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (val) {
                   if (val!.isEmpty) return "please enter your name";
                 },
                 decoration: Methodes.buildInputDecoration(
                     "EMail", "", Icon(Icons.email), null),
               ),
-              TextFormField(
+              TextFormField(  autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (val) {
                   if (val!.isEmpty) return "please enter your name";
                 },
                 decoration: Methodes.buildInputDecoration(
                     "phone", "", Icon(Icons.phone), null),
               ),
-              TextFormField(
+              TextFormField(  autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: controllerdatepicker,
                 readOnly: true,
                 decoration: Methodes.buildInputDecoration("Date ", "", Icon(Icons.date_range), null),

@@ -58,6 +58,7 @@ dependencies:
   email_validator: ^2.1.17
   dropdown_button2:
   timezone: ^0.9.2
+  bot_toast: ^4.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

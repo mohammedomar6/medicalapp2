@@ -1,14 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalapp2/methodes.dart';
 import 'package:medicalapp2/presention/login_pages/login/login_view.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
-import 'package:medicalapp2/presention/resource/routes_manger.dart';
-import 'package:medicalapp2/presention/resource/string_manger.dart';
-import 'package:medicalapp2/presention/login_pages/verifaction/VarifictionView.dart';
+
 class NewPasswordView extends StatefulWidget {
   const NewPasswordView({Key? key}) : super(key: key);
 
@@ -21,18 +16,18 @@ class _NewPasswordViewState extends State<NewPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:AppBar(
+        appBar: AppBar(
           elevation: 0,
-          title: Text(
+          title: const Text(
             "New Password",
             style: TextStyle(
               color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
             ),
           ),
           centerTitle: true,
-          backgroundColor: const Color.fromRGBO(187, 227, 227, 0.7333333333333333),
-            automaticallyImplyLeading: false,
-
+          backgroundColor:
+              const Color.fromRGBO(187, 227, 227, 0.7333333333333333),
+          automaticallyImplyLeading: false,
         ),
         body: Form(
           key: globalKey,
@@ -45,24 +40,25 @@ class _NewPasswordViewState extends State<NewPasswordView> {
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    padding: EdgeInsets.only(left: 30),
+                    padding: const EdgeInsets.only(left: 30),
                     //   color: ColorManger.background,
                     width: 200,
 
                     height: 200,
                     child: Image.asset(
-
                       color: ColorManger.textcolor,
                       ImageManger.newpassword,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
-                    validator: (val){
-                     if( val!.isEmpty && val.length==0)
-                       return "enter correct email";
+                    validator: (val) {
+                      if (val!.isEmpty && val.isEmpty) {
+                        return "enter correct email";
+                      }
+                      return null;
                     },
                     obscureText: true,
                     decoration: Methodes.buildInputDecoration(
@@ -71,13 +67,12 @@ class _NewPasswordViewState extends State<NewPasswordView> {
                         Icon(Icons.lock, color: ColorManger.textcolor),
                         null),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   TextFormField(
-                    validator: (v)
-                    {
-
+                    validator: (v) {
+                      return null;
                     },
                     obscureText: true,
                     decoration: Methodes.buildInputDecoration(
@@ -89,11 +84,11 @@ class _NewPasswordViewState extends State<NewPasswordView> {
                         ),
                         null),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Methodes.elevetedButton(
-                      context, "Confirm", LoginView(),globalKey)
+                      context, "Confirm", const LoginView(), globalKey, () {})
                 ],
               ),
             ),

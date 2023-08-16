@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:medicalapp2/presention/mainView/mainview.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
-import 'package:medicalapp2/presention/resource/routes_manger.dart';
 import 'package:medicalapp2/presention/resource/values_manger.dart';
 
 class Methodes {
-   static AppBar buildAppBararrow(BuildContext context,title,) {
+  static AppBar buildAppBararrow(
+    BuildContext context,
+    title,
+  ) {
     return AppBar(
       backgroundColor: ColorManger.cyen50,
       title: Text(
@@ -26,6 +27,7 @@ class Methodes {
       ),
     );
   }
+
   static InputDecoration buildInputDecoration(
       lebel, hintlebel, iconpref, suffixicon) {
     return InputDecoration(
@@ -33,9 +35,10 @@ class Methodes {
       border: UnderlineInputBorder(borderRadius: BorderRadius.circular(25)),
       label: Text(
         "$lebel",
-        style: TextStyle(
-            color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
-            fontSize: AppSize.s22,),
+        style: const TextStyle(
+          color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
+          fontSize: AppSize.s22,
+        ),
       ),
       hintText: "$hintlebel",
       hintStyle: TextStyle(fontSize: AppSize.s14, color: Colors.grey.shade500),
@@ -48,7 +51,7 @@ class Methodes {
             color: Colors.blueGrey.shade600,
           ),
           borderRadius: BorderRadius.circular(25)),
-      contentPadding: EdgeInsets.all(AppPadding.p12),
+      contentPadding: const EdgeInsets.all(AppPadding.p12),
       prefixIcon: iconpref,
       suffixIcon: suffixicon,
     );
@@ -59,7 +62,7 @@ class Methodes {
       elevation: 0,
       title: Text(
         "$title",
-        style: TextStyle(
+        style: const TextStyle(
           color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
         ),
       ),
@@ -72,7 +75,7 @@ class Methodes {
 
   static IconButton buildIconButton({context, route, icon}) {
     return IconButton(
-      color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
+      color: const Color.fromRGBO(7, 51, 51, 0.7333333333333333),
       iconSize: 27,
       onPressed: () {
         Navigator.pop(context);
@@ -91,7 +94,7 @@ class Methodes {
       height: 45,
       child: TextFormField(
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           height: 0.8,
           fontSize: 25,
           color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
@@ -99,12 +102,12 @@ class Methodes {
         decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
                     width: 2)),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                     color: Color.fromRGBO(7, 51, 51, 0.7333333333333333),
                     width: 5))),
       ),
@@ -136,7 +139,8 @@ class Methodes {
   static TextButton buildTextButton(BuildContext context, text, navigator) {
     return TextButton(
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>navigator));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => navigator));
       },
       child: Text(
         text,
@@ -148,14 +152,16 @@ class Methodes {
     );
   }
 
-  static Widget elevetedButton(
-      context, text,  navigator, GlobalKey<FormState> globalKey) {
+  static Widget elevetedButton(context, text, navigator,
+      GlobalKey<FormState> globalKey, Function()? onTap) {
     return Container(
       width: 100,
       decoration: BoxDecoration(gradient: ColorManger.y),
       child: TextButton(
-
-        child: Text(text,style: TextStyle(color: ColorManger.cyen50,fontSize: 20),),
+        child: Text(
+          text,
+          style: TextStyle(color: ColorManger.cyen50, fontSize: 20),
+        ),
         onPressed: () {
           if (!(globalKey.currentState!.validate())) {
             return;
@@ -169,19 +175,20 @@ class Methodes {
       ),
     );
   }
-static  Padding buildhomecard(BuildContext context, String text, String subtitle,
-      String imagepath, routepath) {
+
+  static Padding buildhomecard(BuildContext context, String text,
+      String subtitle, String imagepath, routepath) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             gradient: ColorManger.y, borderRadius: BorderRadius.circular(40)),
         width: 350,
         height: 90,
         child: ListTile(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(40))),
           textColor: ColorManger.white,
           subtitle: Text(
@@ -205,7 +212,8 @@ static  Padding buildhomecard(BuildContext context, String text, String subtitle
           ),
           title: Text(
             text,
-            style: TextStyle(fontWeight: FontWeight.bold,color: ColorManger.cyen50),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, color: ColorManger.cyen50),
           ),
           leading: Image.asset(
             imagepath,
@@ -216,19 +224,20 @@ static  Padding buildhomecard(BuildContext context, String text, String subtitle
       ),
     );
   }
- static Container buildContainerTextButton(BuildContext context) {
+
+  static Container buildContainerTextButton(BuildContext context) {
     return Container(
         decoration: BoxDecoration(gradient: ColorManger.y),
         child: TextButton(
-
             onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> MainView()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const MainView()));
             },
             child: Text(
-
               " Save Information",
-              style: TextStyle(color: ColorManger.cyen50,),
-
+              style: TextStyle(
+                color: ColorManger.cyen50,
+              ),
             )));
   }
 }

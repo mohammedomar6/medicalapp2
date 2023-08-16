@@ -4,14 +4,14 @@ class ApiVariables {
   /////////////
   ///General///
   /////////////
- static const _scheme = 'https';
-  static const  _host = "doctorsback-end.000webhostapp.com";
+  static const _scheme = 'https';
+  static const _host = "doctorsback-end.000webhostapp.com";
   // final _host = '192.168.243.1';
   // final _port = 5000;
 
   static Uri _mainUri({
     required String path,
-    Map<String,String>? params,
+    Map<String, String>? params,
   }) {
     final uri = Uri(
       scheme: _scheme,
@@ -23,17 +23,14 @@ class ApiVariables {
     return uri;
   }
 
-  static Uri _mobileUri({required String path, Map<String,String>? params }) =>
-      _mainUri(path: 'user/$path', params: params);
+  static Uri _mobileUri({required String path, Map<String, String>? params}) =>
+      _mainUri(path: 'api/$path', params: params);
 
   ///Auth
-  static Uri _auth({required String path}) => _mobileUri(path: 'auth/$path');
 
-  static Uri register() => _auth(path: 'register');
+  static Uri register() => _mobileUri(path: 'register');
 
-  static Uri login() => _auth(path: 'login');
-
-  static Uri verifyAccount() => _auth(path: 'verifyaccount');
+  static Uri login() => _mobileUri(path: 'login');
 
   static Uri sendResetPasswordOTP() => _mobileUri(path: 'password/sendemail');
 

@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medicalapp2/methodes.dart';
 import 'package:medicalapp2/presention/login_pages/login/login_view.dart';
+import 'package:medicalapp2/presention/login_pages/verifaction/VarifictionView.dart';
 import 'package:medicalapp2/presention/resource/asset_manger.dart';
 import 'package:medicalapp2/presention/resource/color_manger.dart';
 import 'package:medicalapp2/presention/resource/string_manger.dart';
 import 'package:medicalapp2/presention/resource/values_manger.dart';
-import 'package:medicalapp2/presention/login_pages/verifaction/VarifictionView.dart';
-import 'package:email_validator/email_validator.dart';
 
 import '../../resource/routes_manger.dart';
 
-
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
-
-
 
   @override
   State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
@@ -28,10 +24,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Methodes.buildAppBar(
-        context: context,
-        title: StringManger.Forgotpassword,
-        routeleading: Routes.loginRoutes
-      ),
+          context: context,
+          title: StringManger.Forgotpassword,
+          routeleading: Routes.loginRoutes),
       body: Form(
         key: globalKey,
         child: Container(
@@ -50,11 +45,12 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   ),
                 ),
                 TextFormField(
-                 validator: (vlue){
-                   if(vlue!.isEmpty || vlue.length==0){
-                     return "Enter your Email";
-                   }
-                 },
+                  validator: (vlue) {
+                    if (vlue!.isEmpty || vlue.isEmpty) {
+                      return "Enter your Email";
+                    }
+                    return null;
+                  },
                   controller: controller,
                   style: TextStyle(
                     color: ColorManger.textcolor,
@@ -64,7 +60,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                   decoration: Methodes.buildInputDecoration(
                       StringManger.Email,
                       StringManger.hintlogin,
-                       Icon(
+                      Icon(
                         Icons.email_outlined,
                         color: ColorManger.textcolor,
                       ),
@@ -73,13 +69,14 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 const SizedBox(
                   height: 50,
                 ),
-                Methodes.elevetedButton(context,StringManger.send,Verfiction(),globalKey),
-
+                Methodes.elevetedButton(
+                    context, StringManger.send, Verfiction(), globalKey, () {}),
                 Align(
-                    alignment: Alignment.bottomLeft,
-                    heightFactor: 3.5,
-                    child: Methodes.buildTextButton(context,StringManger.BacktoSignin,LoginView()),),
-
+                  alignment: Alignment.bottomLeft,
+                  heightFactor: 3.5,
+                  child: Methodes.buildTextButton(
+                      context, StringManger.BacktoSignin, const LoginView()),
+                ),
               ],
             ),
           ),
@@ -87,8 +84,4 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
       ),
     );
   }
-
-
 }
-
-
